@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Eventos</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
-        
-    </head>
-
-    <body>
-        <h1>Mensaje:___</h1>
-        <h2>Alta Event</h2>
-        <table id="tabla">
-        <tdbody>
-            <tr>
-            <th> id </th>
-            <th> estado </th>
-            <th>APM</th>
-            <th>OPCIONES</th>
-            </tr>
-        </tdbody>
-    </table>
-
-    <script >
-        const tabla = document.getElementById('tabla');
+const tabla = document.getElementById('tabla');
 const eventos =[
 {
     id: "01",
@@ -83,6 +57,5 @@ function renderTabla (events){
     });
 }
 renderTabla(eventos);
-    </script>
-    </body>
-</html>
+
+  

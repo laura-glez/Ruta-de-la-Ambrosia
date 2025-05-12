@@ -1,30 +1,12 @@
-body{
-    background-color: #fcf9ef;
-    margin: 0;
-    font-family: helvetica, sans-serif;
-  }
-.menu-principal, .redessociales {
-    background-color: #AEBDCA;      /*Color en hexagesimal*/
-    padding:1em;                      /*padding (dentro de la "caja")*/
-    margin: 0;                        /*margen (fuera de la "caja")*/
-    display: block;
-  }
-  .redessociales{
-    height: 5em;
-  }
-  /*Los elementos ul dentro de la clase menu-principal*/
-  .menu-principal ul, .redessociales ul {
-    list-style-type: none;         /*Que no se muestren los puntos en una lista desordenada*/
-    margin: 0;                     /*margen (fuera de la "caja")*/
-    padding: 0;                    /*padding (dentro de la "caja")*/
-    display: flex;
+.tabla{
+    border: 1px solid black auto;
+    border-collapse:collapse;
+    display:flex;
     justify-content: space-around;
-    flex-direction: row;
-    align-items: center;
-  }
-  /*Los elementos a dentro de la clase menu-principal*/
-  .menu-principal a, .redessociales a { 
-    color: #E8DFCA;                 /*Color en hexagesimal*/
-    text-decoration: none;          /*Que no se vea ninguna decoración en el texto como subrayado*/
-    padding: 10px;                  /*padding (dentro de la "caja")*/
-  }
+    flex-direction: column;
+    margin: auto;
+  
+    }
+    th{
+        border: 1px solid black;
+    }
