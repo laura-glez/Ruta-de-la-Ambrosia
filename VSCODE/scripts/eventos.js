@@ -1,17 +1,20 @@
 const tabla = document.getElementById("tabla").querySelector("tbody");
 
-let eventos = [
-    { id: "01", nombre: "CaVinos01", estado: "activo", aforo: "25" },
-    { id: "02", nombre: "CaVinos02", estado: "activo", aforo: "30" },
-    { id: "03", nombre: "CaCerveza01", estado: "activo", aforo: "25" },
-    { id: "04", nombre: "CaCerveza02", estado: "activo", aforo: "30" },
-    { id: "05", nombre: "CaCocktails01", estado: "activo", aforo: "25" },
-    { id: "06", nombre: "CaCocktails02", estado: "activo", aforo: "30" }
-];
+    let eventos = [
+      { id: "01", nombre: "CaVinos01", estado: "activo", aforo: "25" },
+      { id: "02", nombre: "CaVinos02", estado: "activo", aforo: "30" },
+      { id: "03", nombre: "CaCerveza01", estado: "activo", aforo: "25" },
+      { id: "04", nombre: "CaCerveza02", estado: "activo", aforo: "30" },
+      { id: "05", nombre: "CaCocktails01", estado: "activo", aforo: "25" },
+      { id: "06", nombre: "CaCocktails02", estado: "activo", aforo: "30" }
+    ];
+    let filaNueva = {id: "07", nombre: "CaCocktails03", estado: "activo", aforo: "40"};
 
-function renderTabla(events) {
-    events.forEach(e => {
-        const fila = tabla.insertRow(); 
+    function renderTabla() {
+      tabla.innerHTML = ""; 
+
+      eventos.forEach((e, index) => {
+        const fila = tabla.insertRow();
 
         const celdaId = fila.insertCell();
         celdaId.textContent = e.id;
@@ -31,10 +34,10 @@ function renderTabla(events) {
         img.alt = "Ver";
         img.width = 24;
         img.height = 24;
-        img.id="ver";
+        img.id = "ver";
         celdaVer.appendChild(img);
-        img.addEventListener("click", function(){
-            alert ("Ver detalles del evento")
+        img.addEventListener("click", function() {
+          alert("Ver detalles del evento");
         });
 
         const celdaModificar = fila.insertCell();
@@ -43,12 +46,11 @@ function renderTabla(events) {
         img2.alt = "Modificar";
         img2.width = 24;
         img2.height = 24;
-        img2.id="modificar";
+        img2.id = "modificar";
         celdaModificar.appendChild(img2);
-        img2.addEventListener("click", function(){
-            alert ("Modificar detalles del evento")
+        img2.addEventListener("click", function() {
+          alert("Modificar detalles del evento");
         });
-        
 
         const celdaEliminar = fila.insertCell();
         const img3 = document.createElement("img");
@@ -56,19 +58,15 @@ function renderTabla(events) {
         img3.alt = "Eliminar";
         img3.width = 24;
         img3.height = 24;
-        img3.id="eliminar";
+        img3.id = "eliminar";
         celdaEliminar.appendChild(img3);
-        imgEliminar.addEventListener("click", function(event) {
-            const fila = event.target.closest("tr"); // Encuentra la fila
-            const indice = fila.dataset.index; // Obtén el índice de la fila desde el atributo 'data-index'
-      
-            // Eliminar el evento del array 'eventos'
-            eventos.splice(indice, 1); // Eliminar el evento del array de memoria
-      
-            renderTabla(); // Vuelve a renderizar la tabla después de eliminar
-          });
+
+        img3.addEventListener("click", function() {
+          eventos.splice(index, 1);
+          renderTabla(); 
         });
-      }
+      });
+    }
 
-
-renderTabla(eventos);
+    renderTabla();
+ 
