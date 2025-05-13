@@ -20,7 +20,7 @@
 #tabla {
     width: 700px;
     border-collapse:collapse;
-    border-radius: 5px;
+    border-radius: 10px;
     font-family: Arial, sans-serif;
     box-shadow:0px 2px 20px rgba(42, 40, 43, 0.3);
     
