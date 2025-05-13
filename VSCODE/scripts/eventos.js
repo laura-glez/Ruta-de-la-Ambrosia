@@ -10,7 +10,7 @@ let eventos = [
 ];
 
 function renderTabla() {
-  tabla.innerHTML = "";
+  tabla.innerHTML = ""; 
 
   eventos.forEach((e, index) => {
     const fila = tabla.insertRow();
@@ -74,12 +74,27 @@ function renderTabla() {
 }
 
 renderTabla();
+function altaEvento(event) {
+  event.preventDefault(); 
+  const nombre = document.getElementById("Nombre").value;
+  const estado = document.getElementById("Estado").value;
+  const aforo = document.getElementById("Aforo").value;
 
-function altaEvento() {
-  let alta = { id: "07", nombre: "CaCocktails03", estado: "activo", aforo: "40" };
-  eventos.push(alta);
+  let nuevoEvento = {
+    id: (eventos.length + 1).toString().padStart(2, '0'), 
+    nombre: nombre,
+    estado: estado,
+    aforo: aforo
+  };
+
+  eventos.push(nuevoEvento);
+
+
+  document.getElementById("Nombre").value = '';
+  document.getElementById("Estado").value = '';
+  document.getElementById("Aforo").value = '';
 
   renderTabla();
 }
 
-document.getElementById("altaEvento").addEventListener("click", altaEvento);
+document.getElementById("altaEvento").addEventListener("submit", altaEvento);
