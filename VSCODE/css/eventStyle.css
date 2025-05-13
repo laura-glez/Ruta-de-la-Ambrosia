@@ -96,6 +96,28 @@ form button:hover {
   background-color: #f0f8fb;
 }
 
+.estado-circulo {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.estado-activo {
+  background-color: #4CAF50;
+}
+
+.estado-pendiente {
+  background-color: #FFEB3B; 
+}
+
+.estado-finalizado {
+  background-color: #F44336;
+}
+
+
 .modificar.titulo {
   margin-top: 40px;
 }
