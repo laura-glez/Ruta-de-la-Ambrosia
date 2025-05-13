@@ -100,7 +100,6 @@ document.getElementById("formAltaEvento").addEventListener("submit", function(ev
   document.getElementById("Estado").value = '';
   document.getElementById("Aforo").value = '';
 
-  document.getElementById("formAltaEvento").style.display = "none";
   renderTabla();
 });
 
