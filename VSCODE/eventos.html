@@ -8,12 +8,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/eventStyle.css">
 </head>
 <body>
+  <div id="contenedor">
 
     <h1>Administración de los Eventos</h1>
-    <h2>Alta Event</h2>
 
-<form id="altaEvento">
+<h2 id="altaEvento">Alta Evento</h2>
 
+
+<form id="formAltaEvento" style="display: none;">
   <label for="Nombre">Nombre:</label>
   <input type="text" id="Nombre" required><br><br>
 
@@ -24,7 +26,6 @@
   <input type="number" id="Aforo" required><br><br>
 
   <button type="submit">Guardar Cambios</button>
-
 </form>
 
     <table id="tabla">

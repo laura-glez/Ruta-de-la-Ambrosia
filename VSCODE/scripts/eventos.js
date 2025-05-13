@@ -10,7 +10,7 @@ let eventos = [
 ];
 
 function renderTabla() {
-  tabla.innerHTML = ""; 
+  tabla.innerHTML = "";
 
   eventos.forEach((e, index) => {
     const fila = tabla.insertRow();
@@ -68,14 +68,20 @@ function renderTabla() {
     celdaEliminar.appendChild(img3);
     img3.addEventListener("click", function() {
       eventos.splice(index, 1); 
-      renderTabla(); 
+      renderTabla();
     });
   });
 }
 
-renderTabla();
-function altaEvento(event) {
+
+document.getElementById("altaEvento").addEventListener("click", function() {
+document.getElementById("formAltaEvento").style.display = "block";
+});
+
+
+document.getElementById("formAltaEvento").addEventListener("submit", function(event) {
   event.preventDefault(); 
+
   const nombre = document.getElementById("Nombre").value;
   const estado = document.getElementById("Estado").value;
   const aforo = document.getElementById("Aforo").value;
@@ -94,7 +100,9 @@ function altaEvento(event) {
   document.getElementById("Estado").value = '';
   document.getElementById("Aforo").value = '';
 
+  document.getElementById("formAltaEvento").style.display = "none";
   renderTabla();
-}
+});
 
-document.getElementById("altaEvento").addEventListener("submit", altaEvento);
+
+renderTabla();
