@@ -1,56 +1,122 @@
-#contenedor{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    color: rgb(42, 40, 43);
-    width: 60%;
-    position: relative;
-    left:20%;
-    font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  color: #252a3b;
+}
+
+#contenedor {
+  max-width: 900px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 20px rgba(42, 40, 43, 0.1);
+}
+
+h1, h2 {
+  color: #53646f;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
 #imagen{
   float: left;
   position: relative;
   left: 100px;
-  bottom:70px;
-}
-.titulo{
-    text-align: center;
+  bottom:50px;}
+
+form {
+  margin-top: 20px;
 }
 
-.modificar{visibility: hidden;}
+form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #53646f;
+  font-weight: 400;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form button {
+  background-color: #01b9d1;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0198ac;
+}
 
 #tabla {
-    width: 700px;
-    border-collapse:collapse;
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-    box-shadow:0px 2px 20px rgba(42, 40, 43, 0.3);
-    
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  background-color: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#tabla thead {
+  background-color: #f4f6f8;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #9eabb4;
+}
+
+#tabla th, #tabla td {
+  padding: 15px 12px;
+  text-align: center;
+  border-bottom: 1px solid #e4e9ea;
+}
+
+#tabla tbody tr:hover {
+  background-color: #f0f8fb;
+}
+
+.modificar.titulo {
+  margin-top: 40px;
+}
+
+.modificar {
+  visibility: hidden;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  #contenedor {
+    width: 95%;
+    padding: 20px;
   }
-tbody{
-    text-align: center;
+
+  #tabla {
+    font-size: 12px;
   }
-th {
-    background: rgb(130, 95, 170);
-    color: white;
-    padding: 12px;
-    text-align: left;
-    align-content: center;
-    /* border-bottom: 2px solid #6A1B9A; */
+
+  form input, form button {
+    font-size: 13px;
   }
-  
-td {
-    padding: 10px;
-    /* border-bottom: 1px solid #E6E6FA; */
-  }
-  
- tr:nth-child(even) {
-    background-color: #f0f0f0; 
-  }
-  
-tr:hover {
-    background-color: #D8BFD8; 
-  }
+}
