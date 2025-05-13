@@ -33,7 +33,7 @@ h1, h2 {
   float: left;
   position: relative;
   left: 100px;
-  bottom:50px;}
+  bottom:47px;}
 
 form {
   margin-top: 20px;
@@ -56,7 +56,7 @@ form input {
 }
 
 form button {
-  background-color: #01b9d1;
+  background-color: #66417e;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -67,15 +67,14 @@ form button {
 }
 
 form button:hover {
-  background-color: #0198ac;
+  background-color:#66417e;
 }
 
 #tabla {
   width: 100%;
   border-collapse: collapse;
   margin-top: 30px;
-  background-color: #fff;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
   border-radius: 8px;
   overflow: hidden;
 }
