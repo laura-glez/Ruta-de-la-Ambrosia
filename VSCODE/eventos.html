@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Eventos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/eventStyle.css">
 </head>
 <body>
+
     <h1>Administración de los Eventos</h1>
     <h2>Alta Event</h2>
 
@@ -25,6 +26,7 @@
   <button type="submit">Guardar Cambios</button>
 
 </form>
+
     <table id="tabla">
         <thead>
                 <tr>
@@ -40,9 +42,11 @@
         <tbody>
         </tbody>
     </table>
+  
 
-    <h2>Modificar Evento</h2>
-  <form id="formModificarEvento" style="display: none;">
+    <h2 class="modificar titulo">Modificar Evento</h2>
+    
+    <form id="formModificarEvento" style="display: none;">
     <label for="modNombre">Nombre:</label>
     <input type="text" id="modNombre" required><br><br>
     <label for="modEstado">Estado:</label>
@@ -52,6 +56,7 @@
     <button type="submit">Guardar Cambios</button>
   </form>
 
+</div>
 
     <script src="scripts/eventos.js"></script>
 </body>
