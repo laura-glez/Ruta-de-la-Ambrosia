@@ -108,6 +108,7 @@ function toggleIcon(event) {
   const icono1 = document.getElementById('icono1');
   const icono2 = document.getElementById('icono2');
 
+  // Oculta el primer ícono y muestra el segundo
   icono1.style.display = 'none';
   icono2.style.display = 'inline';
 
@@ -115,7 +116,10 @@ function toggleIcon(event) {
   setTimeout(() => {
     icono1.style.display = 'inline';
     icono2.style.display = 'none';
-  }, 100);
+
+    // Redirige a la página de inicio de sesión
+    window.location.href = "D:\\PRACTICA\\Ruta-a-la-Ambrosia\\VSCODE\\inicioSesion.html";
+  }, 200);
 }
 
 document.getElementById("formModificarEvento").addEventListener("submit", function (event) {
