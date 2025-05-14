@@ -111,7 +111,7 @@ function toggleIcon(event) {
   icono1.style.display = 'none';
   icono2.style.display = 'inline';
 
-  // Vuelve al estado original después de 2 segundos
+  // Vuelve al estado original después de 0.2 segundos
   setTimeout(() => {
     icono1.style.display = 'inline';
     icono2.style.display = 'none';
