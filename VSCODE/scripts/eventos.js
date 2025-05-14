@@ -33,7 +33,7 @@ function renderTabla() {
 
     const celdaVer = fila.insertCell();
     const img = document.createElement("img");
-    img.src = "https://img.icons8.com/?size=100&id=gEem2MeykyL5&format=png&color=000000";
+    img.src = "https://img.icons8.com/?size=100&id=gEem2MeykyL5&format=png&color=555758";
     img.alt = "Ver";
     img.width = 24;
     img.height = 24;
@@ -45,7 +45,7 @@ function renderTabla() {
 
     const celdaModificar = fila.insertCell();
     const img2 = document.createElement("img");
-    img2.src = "https://img.icons8.com/?size=100&id=8192&format=png&color=000000";
+    img2.src = "https://img.icons8.com/?size=100&id=8192&format=png&color=555758";
     img2.alt = "Modificar";
     img2.width = 24;
     img2.height = 24;
@@ -63,7 +63,7 @@ function renderTabla() {
 
     const celdaEliminar = fila.insertCell();
     const img3 = document.createElement("img");
-    img3.src = "https://img.icons8.com/?size=100&id=47259&format=png&color=000000";
+    img3.src = "https://img.icons8.com/?size=100&id=47259&format=png&color=800020";
     img3.alt = "Eliminar";
     img3.width = 24;
     img3.height = 24;
@@ -102,6 +102,21 @@ document.getElementById("formAltaEvento").addEventListener("submit", function (e
 
   renderTabla();
 });
+
+function toggleIcon(event) {
+  event.preventDefault();
+  const icono1 = document.getElementById('icono1');
+  const icono2 = document.getElementById('icono2');
+
+  icono1.style.display = 'none';
+  icono2.style.display = 'inline';
+
+  // Vuelve al estado original después de 2 segundos
+  setTimeout(() => {
+    icono1.style.display = 'inline';
+    icono2.style.display = 'none';
+  }, 100);
+}
 
 document.getElementById("formModificarEvento").addEventListener("submit", function (event) {
   event.preventDefault();
