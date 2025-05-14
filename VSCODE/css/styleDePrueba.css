@@ -1,0 +1,643 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #333;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+
+
+
+header {
+  background: #f5deb3;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+header .logo {
+  font-weight: 800;
+  font-size: 24px;
+  color: #111;
+}
+
+header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+
+.nav1 ul {
+  list-style: none;
+
+  background: wheat;
+
+}
+
+.nav1 ul:before,
+.nav1 ul:after {
+  content: "";
+  display: table;
+}
+.nav1 ul:after {
+  clear: both;
+}
+
+.nav1 ul > li {
+  float: left;
+  position: relative;
+}
+
+.nav1 a {
+  display: block;
+  padding: 10px 17px;
+  line-height: 1.2em;
+  color: black;
+  transition: color 0.7s ;
+}
+
+.nav1 a:hover {
+  text-decoration: none;
+  color:#7a1919;
+}
+
+.nav1 li ul {
+  position: absolute;
+  left: -9999em;
+  top: 36px;
+  z-index: 1;
+  background: wheat;
+}
+
+.nav1 li ul li {
+  width: 200px;
+}
+
+.nav1 ul > li:hover ul {
+  left: 0;
+}
+
+.nav1 li ul a {
+  border: none;
+}
+
+.nav1 li ul a:hover {
+  background: rgba(0, 0, 0, 0.097);
+}
+
+
+
+
+
+
+
+
+
+
+
+.Principal {
+  position: relative;
+  height: 85vh;     
+  width: 100%;
+  background: url('https://hips.hearstapps.com/hmg-prod/images/bodegas-enoturismo-vino-vendimia-1538589949.jpg') center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #333;
+  background-attachment: fixed;
+}
+
+
+.Principal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.081);
+}
+
+
+.Principal-texto {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  padding: 0 20px;
+  transform: translateY(50%);
+  background-color: #1111117c;
+}
+
+
+.Principal-texto h1 {
+  font-size: 50px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+
+.Principal-texto p {
+  font-size: 40px;
+  color: #eee;
+  margin-bottom: 30px;
+}
+
+
+.Principal-texto a {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+
+.Principal-texto a:hover {
+  background: #333;
+}
+
+
+
+
+
+#reserva{
+  padding: 15px 30px;
+  background-color: #f5deb3;
+  color: #333;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+#reserva::after{
+  content: "y contigo";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+
+#reserva:hover{
+  background-color: #7a1919;
+  color: transparent;
+}
+
+
+#reserva:hover::after{
+  opacity: 1;
+}
+
+
+
+
+.Espacio-Contenedores{
+  padding: 135px 0px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.Espacio-Contenedores h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.diferenciar{
+  font-size: 40px;
+  margin-bottom: 20px;
+  background-color: wheat;
+}
+
+.Espacio-Contenedores p {
+  max-width: auto;
+  margin: 0 auto 40px;
+  font-size: 16px;
+}
+
+
+
+
+
+footer {
+  background: black;
+  color: whitesmoke;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+
+
+.Contenedor-orden {
+  position: relative;
+  height: 70vh;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+
+
+
+
+
+
+.imagen-Reserva {
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  transform: translateY(-0px);
+  border-radius: 5px;
+  transition: 400ms ease-in-out;
+  z-index: 1;
+}
+
+
+
+.Reservas-Populares {
+  height: 350px;
+  width: 400px;
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  transition: 700ms ease-in-out;
+  cursor: pointer;
+}
+
+
+.Diseño-letra {
+
+  text-align: center;
+}
+
+.Reservas-Populares:hover {
+  height: 450px;
+  width: 1000px;
+}
+
+
+
+.Reservas-Populares:hover .imagen-Reserva {
+  height: 200px;
+  width: 200px;
+  transform: translateY(-120px);
+}
+
+
+.Reservas-Populares:hover .Diseño-letra {
+  transform: translateY(20px);
+}
+
+
+
+
+
+.Reservas-Populares {
+  padding: 15px 40px;
+  font-size: 20px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.Reservas-Populares:hover {
+  animation: gelatinosa 1.4s ease-in-out;
+
+}
+
+@keyframes gelatinosa {
+  0% { 
+    transform: scale(1, 1); 
+  }
+  25% { 
+    transform: scale(1.1, 0.9); 
+  }
+  50% { 
+    transform: scale(0.9, 1.1); 
+  }
+  75% { 
+    transform: scale(1.05, 0.95); 
+  }
+  100% { 
+    transform: scale(1, 1); 
+  }
+}
+
+
+
+
+
+
+
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: 'Rubik', sans-serif;
+  --font-serif: 'Cardo', serif;
+}
+
+.pagina-content-P-reservas {
+  display: grid;
+  grid-gap: 1rem;
+  padding: 1rem;
+  max-width: 100%;
+  margin: 0 ;
+  font-family: var(--font-sans);
+}
+
+@media (min-width: 600px) {
+  .pagina-content-P-reservas {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 800px) {
+  .pagina-content-P-reservas {
+      grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+
+.card-P-reservas {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1),
+              0 2px 2px rgba(0,0,0,0.1),
+              0 4px 4px rgba(0,0,0,0.1),
+              0 8px 8px rgba(0,0,0,0.1),
+              0 16px 16px rgba(0,0,0,0.1);
+  height: 350px;
+}
+
+.card-P-reservas:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-size: cover;
+  background-position: 0 0;
+  transition: transform calc(var(--d) * 1.5) var(--e);
+  pointer-events: none;
+}
+
+.card-P-reservas:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  background-image: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0.790) 100%
+  );
+  transform: translateY(-50%);
+  transition: transform calc(var(--d) * 2) var(--e);
+}
+
+.card-P-reservas:nth-child(1):before {
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+}
+.card-P-reservas:nth-child(2):before {
+  background-image: url(https://cdn.palbincdn.com/users/36776/images/1-1610009759.jpg);
+}
+.card-P-reservas:nth-child(3):before {
+  background-image: url(https://phantom-elmundo.unidadeditorial.es/4fc880bfd274d3e1c194e4ee835223c0/crop/0x0/720x540/resize/414/f/jpg/assets/multimedia/imagenes/2020/04/13/15867734072559.jpg);
+}
+.card-P-reservas:nth-child(4):before {
+  background-image: url(https://www.catadelvino.com/uploads/que-significa-la-categoria-de-vino-de-mesa-4917-1.jpg);
+}
+.card-P-reservas:nth-child(5):before {
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+}
+
+.content-P-reservas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  transition: transform var(--d) var(--e);
+  z-index: 1;
+}
+
+.ElTitulo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.P-reseña_Descrip {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.btn-P-Reseñas {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+}
+
+@media (hover: hover) and (min-width: 600px) {
+  .card-P-reservas:after {
+      transform: translateY(0);
+  }
+
+  .content-P-reservas {
+      transform: translateY(calc(100% - 4.5rem));
+  }
+
+  .card-P-reservas:hover,
+  .card-P-reservas:focus-within {
+      align-items: center;
+  }
+
+  .card-P-reservas:hover:before {
+      transform: translateY(-4%);
+  }
+
+  .card-P-reservas:hover:after {
+      transform: translateY(-50%);
+  }
+
+  .card-P-reservas:hover .content-P-reservas {
+      transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card-reservas {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1),
+              0 2px 2px rgba(0,0,0,0.1),
+              0 4px 4px rgba(0,0,0,0.1),
+              0 8px 8px rgba(0,0,0,0.1),
+              0 16px 16px rgba(0,0,0,0.1);
+  height: 350px;
+}
+
+.card-reservas:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-size: cover;
+  background-position: 0 0;
+  transition: transform calc(var(--d) * 1.5) var(--e);
+  pointer-events: none;
+}
+
+.card-reservas:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  background-image: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0.790) 100%
+  );
+  transform: translateY(-50%);
+  transition: transform calc(var(--d) * 2) var(--e);
+}
+
+
+.card-reservas:nth-child(1):before {
+  background-image: url(https://vinoselcielo.com/cdn/shop/articles/todo-lo-que-tienes-que-saber-acerca-de-la-cata-de-vinos-173211_1024x.jpg?v=1727293932);
+}
+.card-reservas:nth-child(2):before {
+  background-image: url(https://www.ikea.com/es/es/images/products/mjod-jarra-cerveza-vidrio-incoloro__0896000_pe609493_s5.jpg);
+}
+.card-reservas:nth-child(3):before {
+  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
+}
+.card-reservas:nth-child(4):before {
+  background-image: url(https://vinoselcielo.com/cdn/shop/articles/todo-lo-que-tienes-que-saber-acerca-de-la-cata-de-vinos-173211_1024x.jpg?v=1727293932);
+}
+.card-reservas:nth-child(5):before {
+  background-image: url(https://www.ikea.com/es/es/images/products/mjod-jarra-cerveza-vidrio-incoloro__0896000_pe609493_s5.jpg);
+}
+.card-reservas:nth-child(6):before {
+  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
+}
+.card-reservas:nth-child(7):before {
+  background-image: url(https://vinoselcielo.com/cdn/shop/articles/todo-lo-que-tienes-que-saber-acerca-de-la-cata-de-vinos-173211_1024x.jpg?v=1727293932);
+}
+.card-reservas:nth-child(8):before {
+  background-image: url(https://www.ikea.com/es/es/images/products/mjod-jarra-cerveza-vidrio-incoloro__0896000_pe609493_s5.jpg);
+}
+.card-reservas:nth-child(9):before {
+  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
+}
+.card-reservas:nth-child(10):before {
+  background-image: url(https://www.clarin.com/2023/06/08/YRSz8s035_2000x1500__1.jpg);
+}
+
+@media (hover: hover) and (min-width: 600px) {
+  .card-reservas:after {
+      transform: translateY(0);
+  }
+
+  .content-P-reservas {
+      transform: translateY(calc(100% - 4.5rem));
+  }
+
+  .card-reservas:hover,
+  .card-reservas:focus-within {
+      align-items: center;
+  }
+
+  .card-reservas:hover:before {
+      transform: translateY(-4%);
+  }
+
+  .card-reservas:hover:after {
+      transform: translateY(-50%);
+  }
+
+  .card-reservas:hover .content-P-reservas {
+      transform: translateY(0);
+  }
+}
