@@ -10,7 +10,7 @@ th {
     padding: 12px;
     text-align: left;
     border-bottom: 2px solid #6A1B9A;
-}
+  }
   
 td {
     padding: 10px;
@@ -23,4 +23,4 @@ td {
   
 tr:hover {
     background-color: #D8BFD8; 
-}
+  }
