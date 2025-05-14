@@ -666,3 +666,8 @@ opacity: 0;
 .icono-usuario a:hover #icono2 {
   opacity: 1; /* Muestra el segundo icono */
 }
+
+#logoRA{
+  position: relative;
+  top: 30px;
+}
