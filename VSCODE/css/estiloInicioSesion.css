@@ -5,9 +5,12 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #f5f5f5;
     color: #333;
-  }
+        background-image: url("https://media.istockphoto.com/photos/vi%C3%B1edo-en-la-puesta-de-sol-picture-id504580551");
+        background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+        background-position: center; /* Centra la imagen en la pantalla */
+    }
+  
   
   .container {
     width: 100%;
@@ -59,4 +62,6 @@ body {
   button:hover {
     background-color: #b65555;
   }
+
+
   

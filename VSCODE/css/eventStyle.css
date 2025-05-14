@@ -200,8 +200,7 @@ header nav a {
 }
 
 .nav1 a:hover {
-  
-  background:rgb(185, 169, 137);
+ color:#800020;
 }
 
 .nav1 li ul {
@@ -234,4 +233,29 @@ header nav a {
   height: 24px;            
   width: auto;             
   display: inline-block;   
+}
+
+
+.icono-usuario a {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.icono-usuario #icono2 {
+opacity: 0;
+}
+.icono-usuario img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.icono-usuario a:hover #icono1 {
+  opacity: 0; /* Oculta el primer icono */
+}
+
+.icono-usuario a:hover #icono2 {
+  opacity: 1; /* Muestra el segundo icono */
 }
