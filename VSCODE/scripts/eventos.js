@@ -102,7 +102,7 @@ document.getElementById("formAltaEvento").addEventListener("submit", function (e
 
   renderTabla();
 });
-
+/*
 function toggleIcon(event) {
   event.preventDefault();
   const icono1 = document.getElementById('icono1');
@@ -120,7 +120,7 @@ function toggleIcon(event) {
     // Redirige a la página de inicio de sesión
     window.location.href = "D:\\PRACTICA\\Ruta-a-la-Ambrosia\\VSCODE\\inicioSesion.html";
   }, 200);
-}
+}*/
 
 document.getElementById("formModificarEvento").addEventListener("submit", function (event) {
   event.preventDefault();
