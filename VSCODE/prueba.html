@@ -1,88 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parallax</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow-x: hidden;
-    }
-
-    .parallax-section {
-      position: relative;
-      height: 90vh;
-      overflow: hidden;
-    }
-
-    .parallax-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 150%; /* mayor que 100% para permitir el desplazamiento */
-      background-image: url('img/wine-bottles-2842709_1920.jpg');
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-      transform: translateY(0);
-      transition: transform 0.5s;
-    }
-    .eslogan{
-      position: absolute;
-      bottom: -15px; /* distancia desde el fondo de la sección visible */
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgb(255, 255, 255);
-      color: rgb(0, 0, 0);
-      padding: 30px 50px;
-      border-radius: 8px;
-      font-size: 1.5rem;
-      text-align: center;
-      z-index: 1;
-    }
-
-    .contenido {
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: white;
-      font-size: 2rem;
-    }
-    #reserva{
-      padding: 15px 30px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    #reserva::after{
-        content: "y contigo";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        opacity: 0;
-        transition: opacity 0.3s;
-        pointer-events: none;
-    }
-    #reserva:hover{
-        background-color: #7a1919;
-        color: transparent;
-    }
-    #reserva:hover::after{
-        opacity: 1;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta a la Ambrosia</title>
+    <link href="css/styleDePrueba.css" rel="stylesheet">
+    
 </head>
 <body>
   
@@ -95,22 +18,62 @@
     </div>
   </div>
 
-  <div class="contenido">
-    <p>secciones</p>
-  </div>
+            <div class="card-reservas">
+                <div class="content-P-reservas">
+                    <h2 class="ElTitulo">Nombre-Reserva</h2>
+                    <p class="P-reseña_Descrip">Pequeña Descripcion para despues ir a la pagina </p>
+                    <button class="btn-P-Reseñas">Reservar Ahora</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="contenido">
-    <p>cajitas</p>
-  </div>
+    <section class="Espacio-Contenedores">
+        <h2 class="diferenciar">Tipos Reservas</h2>
+        <div class="pagina-content-P-reservas">
+            <div class="card-P-reservas">
+                <div class="content-P-reservas">
+                    <h2 class="ElTitulo">Vinos</h2>
+                    <p class="P-reseña_Descrip">Pequeña Descripcion para despues ir a la pagina </p>
+                    <button class="btn-P-Reseñas">Reservar Ahora</button>
+                </div>
+            </div>
 
-  <script>
-    window.addEventListener('scroll', function() {
-      const scrolled = window.scrollY;
-      const background = document.getElementById('parallax-bg');
-      // Ajusta la velocidad cambiando el divisor (e.g. 2 para más lento, 0.5 para más rápido)
-      background.style.transform = 'translateY(' + scrolled * 2 + 'px)';
-    });
-  </script>
+            <div class="card-P-reservas">
+                <div class="content-P-reservas">
+                    <h2 class="ElTitulo">Cervezas</h2>
+                    <p class="P-reseña_Descrip">Pequeña Descripcion para despues ir a la pagina </p>
+                    <button class="btn-P-Reseñas">Reservar Ahora</button>
+                </div>
+            </div>
+
+            <div class="card-P-reservas">
+                <div class="content-P-reservas">
+                    <h2 class="ElTitulo">Cocteles</h2>
+                    <p class="P-reseña_Descrip">Pequeña Descripcion para despues ir a la pagina </p>
+                    <button class="btn-P-Reseñas">Reservar Ahora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Espacio-Contenedores">
+        <h2 class="diferenciar">Informacion sobre Nosotros</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut risus quis odio efficitur hendrerit vel nec lorem.</p>
+    </section>
+
+    <footer>
+        &copy; 2025 Mi Sitio. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrolled = window.scrollY;
+            const background = document.getElementById('Principal');
+            // Ajusta la velocidad cambiando el divisor (e.g. 2 para más lento, 0.5 para más rápido)
+            background.style.transform = 'translateY(' + scrolled * 0.5 + 'px)';
+          });
+    </script> 
 
 </body>
 </html>
