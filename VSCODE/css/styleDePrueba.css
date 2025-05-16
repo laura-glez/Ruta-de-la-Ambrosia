@@ -241,7 +241,8 @@ header nav a {
 .diferenciar{
   font-size: 40px;
   margin-bottom: 20px;
-  background-color: wheat;
+  background-color: #750f3b;
+  color:#F9F4EF;
 }
 
 .Espacio-Contenedores p {
@@ -255,8 +256,8 @@ header nav a {
 
 
 footer {
-  background: black;
-  color: whitesmoke;
+  background: #750f3b;
+  color: #fff4c2;
   text-align: center;
   padding: 40px 20px;
 }
