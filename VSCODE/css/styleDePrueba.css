@@ -1,3 +1,6 @@
+
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,6 +11,7 @@ body {
   color: #2e2e2e;
   background-color: #F9F4EF;
   line-height: 1.6;
+  font-family: "cinzel";
 }
 
 
@@ -70,7 +74,7 @@ header nav a {
 
 .nav1 a:hover {
   text-decoration: none;
-  color:#7a1919;
+  color:wheat;
 }
 
 .nav1 li ul {
@@ -134,24 +138,27 @@ header nav a {
 .Principal-texto {
   position: relative;
   z-index: 1;
-  max-width: 650px;
-  padding: 0 20px;
-  transform: translateY(50%);
+  max-width: 450px;
+  padding: 2rem;
+  transform: translateY(105%);
   background-color:  #F9F4EF;
+  border-radius: 10px;
 }
 
 
 .Principal-texto h1 {
-  font-size: 50px;
+  font-size: 2rem;
   color: #2e2e2e;
   margin-bottom: 20px;
+  font-family: "Playfair Display";
 }
 
 
 .Principal-texto p {
-  font-size: 40px;
+  font-size: 1rem;
   color: #2e2e2e;
   margin-bottom: 30px;
+  font-family: "Source Sans 3" ;
 }
 
 
@@ -176,7 +183,8 @@ header nav a {
 
 
 #reserva{
-  padding: 15px 30px;
+  font-family: "Cinzel";
+  padding: 0 1rem;
   background-color: #a89F91;
   color: #333;
   border: none;
@@ -185,6 +193,9 @@ header nav a {
   position: relative;
   overflow: hidden;
   transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+  width: 180px;
+  height: 50px;
 }
 
 
