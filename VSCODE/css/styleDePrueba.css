@@ -18,7 +18,7 @@ body {
 
 
 header {
-  background: #5A0B2D;
+  background: #750f3b;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
@@ -46,7 +46,7 @@ header nav a {
 .nav1 ul {
   list-style: none;
 
-  background:#5A0B2D;
+  background:#750f3b;
 
 }
 
@@ -74,7 +74,7 @@ header nav a {
 
 .nav1 a:hover {
   text-decoration: none;
-  color:wheat;
+  color:rgb(241, 208, 145);
 }
 
 .nav1 li ul {
@@ -213,7 +213,7 @@ header nav a {
 
 
 #reserva:hover{
-  background-color: #5A0B2D;
+  background-color: #750f3b;
   color: transparent;
 }
 
