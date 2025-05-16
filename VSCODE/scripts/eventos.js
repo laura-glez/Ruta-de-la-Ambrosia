@@ -102,25 +102,22 @@ document.getElementById("formAltaEvento").addEventListener("submit", function (e
 
   renderTabla();
 });
-/*
-function toggleIcon(event) {
-  event.preventDefault();
-  const icono1 = document.getElementById('icono1');
-  const icono2 = document.getElementById('icono2');
 
-  // Oculta el primer ícono y muestra el segundo
-  icono1.style.display = 'none';
-  icono2.style.display = 'inline';
+  window.addEventListener('scroll', function() {
+        const scrolled = window.scrollY;
+        const background = document.getElementById('Principal');
+        background.style.transform = 'translateY(' + scrolled * 0.5 + 'px)';
+      });
 
-  // Vuelve al estado original después de 0.2 segundos
-  setTimeout(() => {
-    icono1.style.display = 'inline';
-    icono2.style.display = 'none';
+      function openLoginPopup(event) {
+        event.preventDefault();
+        document.getElementById('loginPopup').style.display = 'flex';
+      }
 
-    // Redirige a la página de inicio de sesión
-    window.location.href = "D:\\PRACTICA\\Ruta-a-la-Ambrosia\\VSCODE\\inicioSesion.html";
-  }, 200);
-}*/
+      function closeLoginPopup() {
+        document.getElementById('loginPopup').style.display = 'none';
+      }
+
 
 document.getElementById("formModificarEvento").addEventListener("submit", function (event) {
   event.preventDefault();
