@@ -17,7 +17,7 @@
               <li><a href="#">Senda de la Hidromiel</a></li>
               <li><a href="#">Senda Espirituosa</a></li>
               <li class="icono-usuario">
-                <a href="D:\PRACTICA\Ruta-a-la-Ambrosia\VSCODE\inicioSesion.html" onclick="toggleIcon(event)">
+                 <a href="#" onclick="openLoginPopup(event)">
                   <img id="icono1" src="img/icons8-usuario-48 (1).png" alt="icono1" width="30" height="30">
                   <img id="icono2" src="img/icons8-usuario-48.png" alt="icono2" width="30" height="30">
                 </a>
@@ -206,6 +206,22 @@
     <footer>
         &copy; 2025 Mi Sitio. Todos los derechos reservados.
     </footer>
+     <div id="login-popup" style="display: none;">
+    <div id="popup-overlay" onclick="closeLoginPopup()"></div>
+    <div id="popup-content">
+        <span id="popup-close" onclick="closeLoginPopup()">×</span>
+        <h2>Iniciar Sesión</h2>
+        <form>
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+
+            <button type="submit" id="entrar-btn">Entrar</button>
+        </form>
+    </div>
+</div>
 
     <script>
         window.addEventListener('scroll', function() {
@@ -215,7 +231,7 @@
             background.style.transform = 'translateY(' + scrolled * 0.5 + 'px)';
           });
     </script> 
-      <script src="scripts/eventos.js"></script>
+      <script src="scripts/Prueba.js"></script>
 
 </body>
 </html>
