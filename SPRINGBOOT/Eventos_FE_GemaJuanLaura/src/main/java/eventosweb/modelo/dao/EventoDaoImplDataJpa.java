@@ -10,8 +10,14 @@ import eventosweb.modelo.repository.EventoRepository;
 @Service
 
 public class EventoDaoImplDataJpa implements EventoDao{
+
+    private final TipolDaoImplDataJpa tipolDaoImplDataJpa;
 	@Autowired
 	private EventoRepository prepo;
+
+    EventoDaoImplDataJpa(TipolDaoImplDataJpa tipolDaoImplDataJpa) {
+        this.tipolDaoImplDataJpa = tipolDaoImplDataJpa;
+    }
 	@Override
 	public List<Evento> todos() {
 		// TODO Auto-generated method stub
@@ -39,5 +45,24 @@ public class EventoDaoImplDataJpa implements EventoDao{
 		// TODO Auto-generated method stub
 		return prepo.findById(idEvento).orElse(null);
 	}
+
+	@Override
+	public int eliminar(Integer idEvento) {
+		int filas=0;
+		if(prepo.existsById(idEvento)) {
+			try {
+				prepo.deleteById(idEvento);
+				filas = 1;
+				;
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+				filas=1;
+			}
+		}else
+			filas = 0;
+		
+		return filas;
+	}
+	
 
 }

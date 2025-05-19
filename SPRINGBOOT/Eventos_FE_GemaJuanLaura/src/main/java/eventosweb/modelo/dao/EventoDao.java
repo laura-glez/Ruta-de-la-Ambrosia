@@ -10,5 +10,6 @@ public interface EventoDao {
 	List<Evento> porNombreContain(String cadena);
 	Evento insertOne(Evento evento);
 	Evento buscarUno(Integer idEvento);
+	int eliminar(Integer idEvento);
 }
 

@@ -68,7 +68,7 @@ function renderTabla() {
       mostrarDatosEvento(e); 
     });
  
-const celdaModificar = fila.insertCell();
+    const celdaModificar = fila.insertCell();
     const img2 = document.createElement("img");
     img2.src = "https://img.icons8.com/?size=100&id=8192&format=png&color=555758";
     img2.alt = "Modificar";
@@ -101,7 +101,7 @@ const celdaModificar = fila.insertCell();
       if (confirmDelete) {
         try {
           // Enviar solicitud DELETE al servidor
-          const response = await fetch(`http://localhost:9003/evento/${e.idEvento}`, {
+          const response = await fetch(`http://localhost:9003/evento/eliminar/${e.idEvento}`, {
             method: 'DELETE',
           });
 
@@ -115,10 +115,12 @@ const celdaModificar = fila.insertCell();
         } catch (error) {
           alert('Error al eliminar el evento: ' + error.message);
         }}});
- });
+    
+    });
 }
 
 document.getElementById("altaEvento").addEventListener("click", function () {
+  document.getElementById("formAltaEvento").style.display="block";
 });
 
 document.getElementById("formAltaEvento").addEventListener("submit", function (event) {
