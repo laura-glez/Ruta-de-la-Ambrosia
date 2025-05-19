@@ -1,13 +1,22 @@
 const tabla = document.getElementById("tabla").querySelector("tbody");
-
-let eventos = [
+async function getEventos() {
+  const nombre= document.getElementById('Nombre').value;
+  const estado= document.getElementById('Estado').value;
+  const aforo = document.getElementById('Aforo').value;
+}
+/*let eventos = [
   { id: "01", nombre: "CaVinos01", estado: "activo", aforo: "25" },
   { id: "02", nombre: "CaVinos02", estado: "activo", aforo: "30" },
   { id: "03", nombre: "CaCerveza01", estado: "pendiente", aforo: "25" },
   { id: "04", nombre: "CaCerveza02", estado: "activo", aforo: "30" },
   { id: "05", nombre: "CaCocktails01", estado: "activo", aforo: "25" },
   { id: "06", nombre: "CaCocktails02", estado: "finalizado", aforo: "30" }
-];
+];*/
+
+
+
+
+
 
 function renderTabla() {
   tabla.innerHTML = "";
