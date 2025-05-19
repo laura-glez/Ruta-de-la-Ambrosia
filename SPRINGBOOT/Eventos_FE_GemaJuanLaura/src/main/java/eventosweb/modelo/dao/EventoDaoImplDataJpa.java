@@ -5,35 +5,39 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import eventosweb.modelo.entities.Perfil;
-import eventosweb.modelo.repository.PerfilRepository;
+import eventosweb.modelo.entities.Evento;
+import eventosweb.modelo.repository.EventoRepository;
 @Service
-public class PerfilDaoImplDataJpa implements PerfilDao{
+
+public class EventoDaoImplDataJpa implements EventoDao{
 	@Autowired
-	private PerfilRepository prepo;
+	private EventoRepository prepo;
 	@Override
-	public List<Perfil> todos() {
+	public List<Evento> todos() {
 		// TODO Auto-generated method stub
 		return prepo.findAll();
 	}
+
 	@Override
-	public List<Perfil> porNombreContain(String cadena) {
+	public List<Evento> porNombreContain(String cadena) {
 		// TODO Auto-generated method stub
 		return prepo.findByNombreContaining(cadena);
 	}
+
 	@Override
-	public Perfil insertOne(Perfil perfil) {
+	public Evento insertOne(Evento evento) {
 		try {
-			return prepo.save(perfil);
+			return prepo.save(evento);
 		}catch(Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
+
 	@Override
-	public Perfil buscarUno(Integer idPerfil) {
+	public Evento buscarUno(Integer idEvento) {
 		// TODO Auto-generated method stub
-		return prepo.findById(idPerfil).orElse(null);
+		return prepo.findById(idEvento).orElse(null);
 	}
 
 }
