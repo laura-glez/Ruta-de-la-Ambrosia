@@ -1,23 +1,39 @@
 const tabla = document.getElementById("tabla").querySelector("tbody");
-async function getEventos() {
-  const nombre= document.getElementById('Nombre').value;
-  const estado= document.getElementById('Estado').value;
-  const aforo = document.getElementById('Aforo').value;
+let eventos = [];
+
+async function getEventos(){
+  try {
+    const res = await fetch('http://localhost:9003/evento/todos');
+    const listResult = await res.json();
+
+    console.log("Datos obtenidos: ", listResult);
+
+    if (!listResult || listResult.length === 0){
+      document.getElementById('tabla').innerHTML = `<p>no se encontraron eventos </p>`;
+      return;
+    }
+
+    eventos = listResult;
+    displayResults(eventos);
+  }catch(error){
+    console.error(error);
+    document.getElementById('tabla').innerHTML= `<p style="color:red">${error.messaje}</p>`;
+  }
 }
-/*let eventos = [
-  { id: "01", nombre: "CaVinos01", estado: "activo", aforo: "25" },
-  { id: "02", nombre: "CaVinos02", estado: "activo", aforo: "30" },
-  { id: "03", nombre: "CaCerveza01", estado: "pendiente", aforo: "25" },
-  { id: "04", nombre: "CaCerveza02", estado: "activo", aforo: "30" },
-  { id: "05", nombre: "CaCocktails01", estado: "activo", aforo: "25" },
-  { id: "06", nombre: "CaCocktails02", estado: "finalizado", aforo: "30" }
-];*/
 
+getEventos();
+// let eventos = [
+//   { id: "01", nombre: "CaVinos01", estado: "activo", aforo: "25" },
+//   { id: "02", nombre: "CaVinos02", estado: "activo", aforo: "30" },
+//   { id: "03", nombre: "CaCerveza01", estado: "pendiente", aforo: "25" },
+//   { id: "04", nombre: "CaCerveza02", estado: "activo", aforo: "30" },
+//   { id: "05", nombre: "CaCocktails01", estado: "activo", aforo: "25" },
+//   { id: "06", nombre: "CaCocktails02", estado: "finalizado", aforo: "30" }
+// ];
 
-
-
-
-
+function displayResults(eventos){
+  renderTabla();
+}
 function renderTabla() {
   tabla.innerHTML = "";
 
@@ -26,7 +42,7 @@ function renderTabla() {
     fila.dataset.index = index;
 
     const celdaId = fila.insertCell();
-    celdaId.textContent = e.id;
+    celdaId.textContent = e.idEvento;
 
     const celdaNombre = fila.insertCell();
     celdaNombre.textContent = e.nombre;
@@ -38,7 +54,7 @@ function renderTabla() {
     celdaEstado.append(` ${e.estado}`);
 
     const celdaAforo = fila.insertCell();
-    celdaAforo.textContent = e.aforo;
+    celdaAforo.textContent = e.aforoMaximo;
 
     const celdaVer = fila.insertCell();
     const img = document.createElement("img");
@@ -111,22 +127,25 @@ document.getElementById("formAltaEvento").addEventListener("submit", function (e
 
   renderTabla();
 });
+/*
+function toggleIcon(event) {
+  event.preventDefault();
+  const icono1 = document.getElementById('icono1');
+  const icono2 = document.getElementById('icono2');
 
-  window.addEventListener('scroll', function() {
-        const scrolled = window.scrollY;
-        const background = document.getElementById('Principal');
-        background.style.transform = 'translateY(' + scrolled * 0.5 + 'px)';
-      });
+  // Oculta el primer ícono y muestra el segundo
+  icono1.style.display = 'none';
+  icono2.style.display = 'inline';
 
-      function openLoginPopup(event) {
-        event.preventDefault();
-        document.getElementById('loginPopup').style.display = 'flex';
-      }
+  // Vuelve al estado original después de 0.2 segundos
+  setTimeout(() => {
+    icono1.style.display = 'inline';
+    icono2.style.display = 'none';
 
-      function closeLoginPopup() {
-        document.getElementById('loginPopup').style.display = 'none';
-      }
-
+    // Redirige a la página de inicio de sesión
+    window.location.href = "D:\\PRACTICA\\Ruta-a-la-Ambrosia\\VSCODE\\inicioSesion.html";
+  }, 200);
+}*/
 
 document.getElementById("formModificarEvento").addEventListener("submit", function (event) {
   event.preventDefault();
