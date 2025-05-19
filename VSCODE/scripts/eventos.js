@@ -67,30 +67,7 @@ function renderTabla() {
     img.addEventListener("click", function () {
       mostrarDatosEvento(e); 
     });
-  });
-}
-
-// Función para mostrar los detalles del evento
-function mostrarDatosEvento(evento) {
-  divDetalles.style.display = "block"; // Hacer visible el div de detalles
-  divDetalles.innerHTML = `
-    <h2>Detalles del Evento: ${evento.nombre}</h2>
-    <p><strong>ID:</strong> ${evento.idEvento}</p>
-    <p><strong>Estado:</strong> ${evento.estado}</p>
-    <p><strong>Aforo Máximo:</strong> ${evento.aforoMaximo}</p>
-    <p><strong>Descripción:</strong> ${evento.descripcion || "Sin descripción disponible"}</p>
-    <p><strong>Fecha Inicio:</strong> ${evento.fechaInicio || "Sin fecha de inicio disponible"}</p>
-    <p><strong>Duracion Evento:</strong> ${evento.duracion} ${evento.unidadDuracion || "Sin duración"}</p>
-    <p><strong>Direccion:</strong> ${evento.direccion || "Sin direccion"}</p>
-    <p><strong>Destacado:</strong> ${evento.destacado }</p>
-    <p><strong>Precio:</strong> ${evento.precio || "Sin precio definido"}</p>
-    <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
-    <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
-  
-  
-    `;
-}
-
+ 
 const celdaModificar = fila.insertCell();
     const img2 = document.createElement("img");
     img2.src = "https://img.icons8.com/?size=100&id=8192&format=png&color=555758";
@@ -138,6 +115,8 @@ const celdaModificar = fila.insertCell();
         } catch (error) {
           alert('Error al eliminar el evento: ' + error.message);
         }}});
+ });
+}
 
 document.getElementById("altaEvento").addEventListener("click", function () {
 });
@@ -182,3 +161,22 @@ document.getElementById("formModificarEvento").addEventListener("submit", functi
   this.style.display = "none";
   renderTabla();
 });
+
+// Función para mostrar los detalles del evento
+function mostrarDatosEvento(evento) {
+  divDetalles.style.display = "block"; // Hacer visible el div de detalles
+  divDetalles.innerHTML = `
+    <h2>Detalles del Evento: ${evento.nombre}</h2>
+    <p><strong>ID:</strong> ${evento.idEvento}</p>
+    <p><strong>Estado:</strong> ${evento.estado}</p>
+    <p><strong>Aforo Máximo:</strong> ${evento.aforoMaximo}</p>
+    <p><strong>Descripción:</strong> ${evento.descripcion || "Sin descripción disponible"}</p>
+    <p><strong>Fecha Inicio:</strong> ${evento.fechaInicio || "Sin fecha de inicio disponible"}</p>
+    <p><strong>Duracion Evento:</strong> ${evento.duracion} ${evento.unidadDuracion || "Sin duración"}</p>
+    <p><strong>Direccion:</strong> ${evento.direccion || "Sin direccion"}</p>
+    <p><strong>Destacado:</strong> ${evento.destacado }</p>
+    <p><strong>Precio:</strong> ${evento.precio || "Sin precio definido"}</p>
+    <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
+    <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
+    `;
+}
