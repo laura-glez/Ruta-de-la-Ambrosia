@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import eventosweb.modelo.entities.Perfil;
 import eventosweb.modelo.repository.PerfilRepository;
 @Service
-public class PerdilDaoImplDataJpa implements PerfilDao{
+public class PerfilDaoImplDataJpa implements PerfilDao{
 	@Autowired
 	private PerfilRepository prepo;
 	@Override
