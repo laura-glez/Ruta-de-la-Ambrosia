@@ -94,6 +94,76 @@ insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,D
              28, 
              1, 
              "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Mundo de la cerveza en este taller con cata",
+             "Entre Cepas te propone experimentar y compartir unas sensaciones que quizá hayas notado alguna vez en los bares, pero que seguramente nunca te has parado a pensar en ellas.", 
+             "2025-04-12",
+             "HORAS", 
+             4,
+             "FITENI I Calle López de Hoyos, 42", 
+             30, 
+             "ACTIVO", 
+             "S", 
+             28, 
+             2, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Cervezas artesanas y quesos eco",
+             "Si eres de los que no puede pasar sin una buena cerveza bien fresca, conocerás las cervezas artesanas. ¿Aún no?", 
+             "2025-04-12",
+             "HORAS", 
+             2,
+             "C/ Francisco Silvela, 25", 
+             30, 
+             "ACTIVO", 
+             "N", 
+             28, 
+             2, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Visita La Caníbal fábrica de cerveza con cata",
+             "Sumérgete en el proceso cervecero, desde la magia de la elaboración hasta la cata de sus últimas creaciones.", 
+             "2025-04-12",
+             "HORAS", 
+             3,
+             "Julián Camarillo 19", 
+             30, 
+             "ACTIVO", 
+             "S", 
+             28, 
+             2, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Taller de gin-tonic",
+             "Camuflado en los bajos de un edificio de la Dreta de l’Eixample se encuentra el local de Cocktail Shop.", 
+             "2025-04-12",
+             "HORAS", 
+             2,
+             "Roger de Llúria, 46 Bajos", 
+             30, 
+             "ACTIVO", 
+             "S", 
+             28, 
+             3, 
+             "2025-05-19");
+             
+insert into EVENTOS (nombre, DESCRIPCION,FECHA_INICIO,UNIDAD_DURACION,DURACION,DIRECCION,AFORO_MAXIMO,ESTADO,DESTACADO,PRECIO,ID_TIPO,FECHA_ALTA) 
+			 values ("Masterclass de coctelería, crea y disfruta",
+             "La magia del Jardinet es de sobra conocida. Su decoración y su atmósfera evocan un oasis en mitad de la ciudad, que resalta sobre lo cotidiano.", 
+             "2025-04-12",
+             "HORAS", 
+             3,
+             "Carrer Mozart, 4", 
+             30, 
+             "ACTIVO", 
+             "N", 
+             28, 
+             3, 
+             "2025-05-19");
 
 CREATE TABLE RESERVAS
 (ID_RESERVA INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
