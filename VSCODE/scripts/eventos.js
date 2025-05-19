@@ -21,7 +21,7 @@ async function getEventos(){
   }
 }
 
-
+getEventos();
 // let eventos = [
 //   { id: "01", nombre: "CaVinos01", estado: "activo", aforo: "25" },
 //   { id: "02", nombre: "CaVinos02", estado: "activo", aforo: "30" },
