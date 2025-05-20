@@ -107,26 +107,42 @@ form button:hover {
   vertical-align: middle;
 }
 
+#tabla td:nth-child(2) {
+  text-align: left;
+}
 
 .estado-activo {
   background-color: #4CAF50;
   color:#4CAF50;
+  background-color: #4CAF50 !important;
+  color: #4CAF50 !important;
 }
 
 .estado-pendiente {
   background-color: #FFEB3B; 
   color:#FFEB3B; 
+  background-color: #FFEB3B !important; 
+  color: #FFEB3B !important; 
 }
 
 .estado-finalizado {
   background-color: #F44336;
   color:#F44336;
+  background-color: #F44336 !important;
+  color: #F44336 !important;
 }
 
 
 .modificar.titulo {
   margin-top: 40px;
 }
+/*@@ -337,4 +329,14 @@ opacity: 0;*/
+  p{
+    padding:0.5em;
+  }
+  
+
+
 
 .modificar {
   visibility: hidden;
@@ -336,5 +352,8 @@ opacity: 0;
   padding: 1em;
   p{
     padding:0.5em;
+  }
+  h2{
+    text-shadow: 4px 2px 14px rgba(0,0,0,0.6);
   }
 }
