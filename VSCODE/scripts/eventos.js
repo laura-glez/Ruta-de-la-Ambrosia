@@ -236,3 +236,22 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
     `;
 }
+   // Asignar event listener para abrir el modal con el formulario
+      document.getElementById('altaEvento').addEventListener('click', () => {
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('popup-overlay');
+        popup.classList.add('show');
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+      });
+  
+      // Event listener para cerrar el modal
+      document.getElementById('cerrarPopup').addEventListener('click', () => {
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('popup-overlay');
+        popup.classList.remove('show');
+        setTimeout(() => {
+          popup.style.display = 'none';
+          overlay.style.display = 'none';
+        }, 200);
+      });
