@@ -77,9 +77,18 @@
     <button type="submit">Guardar Cambios</button>
   </form>
 
-</div>
-<div id="evento-detalle" style="display: none;"></div> <!-- Contenedor para los detalles del evento -->
-    <script src="scripts/eventos.js">
-    </script>
+  <!-- Botón para abrir el pop-up -->
+  <!-- <button id="abrirPopup">Abrir pop-up</button> -->
+
+  <!-- Fondo oscuro desenfocado -->
+  <div id="popup-overlay"></div>
+
+  <!-- Contenedor del pop-up -->
+  <div id="popup">
+    <button id="cerrarPopup">&times;</button>
+    <div id="popup-content">Cargando...</div>
+  </div>
+
+  <script src="scripts/eventos.js"></script>
 </body>
 </html>
