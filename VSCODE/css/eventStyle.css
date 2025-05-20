@@ -98,23 +98,31 @@ form button:hover {
   background-color: #f0f8fb;
 }
 
-#tabla td:nth-child(2) {
-  text-align: left;
+.estado-circulo {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
 }
+
+
 .estado-activo {
-  background-color: #4CAF50 !important;
-  color: #4CAF50 !important;
+  background-color: #4CAF50;
+  color:#4CAF50;
 }
 
 .estado-pendiente {
-  background-color: #FFEB3B !important; 
-  color: #FFEB3B !important; 
+  background-color: #FFEB3B; 
+  color:#FFEB3B; 
 }
 
 .estado-finalizado {
-  background-color: #F44336 !important;
-  color: #F44336 !important;
+  background-color: #F44336;
+  color:#F44336;
 }
+
 
 .modificar.titulo {
   margin-top: 40px;
@@ -329,14 +337,4 @@ opacity: 0;
   p{
     padding:0.5em;
   }
-  
-
 }
-
-#popup-content h2{ 
-  text-shadow: 4px 2px 14px rgba(0,0,0,0.6);
-}
-
-
-
-
