@@ -127,37 +127,25 @@ document.getElementById("altaEvento").addEventListener("click", function () {
 document.getElementById("formAltaEvento").addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  const nombre = document.getElementById("Nombre").value;
-  const descripcion = document.getElementById("Descripcion").value;
-  const fechaInicio = document.getElementById("FechaInicio").value;  
-  const unidadDuracion = document.getElementById("UnidadDuracion").value;
-  const duracion = document.getElementById("Duracion").value;
-  const direccion = document.getElementById("Direccion").value;
-  const aforo = document.getElementById("Aforo").value;
-  const estado = document.getElementById("Estado").value;
-  const precio = document.getElementById("Precio").value;
-  const idTipo = document.getElementById("idTipo").value;
-  
-
-  const fechaAlta = new Date().toISOString();  
-
+  //const fechaAlta = new Date().toISOString();  
 
   let nuevoEvento = {
-    nombre: document.getElementById("Nombre").value,
-    descripcion: document.getElementById("Descripcion").value,
-    fechaInicio: document.getElementById("FechaInicio").value,
-    unidadDuracion: document.getElementById("UnidadDuracion").value,  // "HORAS"
-    duracion: parseInt(document.getElementById("Duracion").value),
-    direccion: document.getElementById("Direccion").value,
-    aforoMaximo: parseInt(document.getElementById("Aforo").value),
-    estado: document.getElementById("Estado").value, // "ACTIVO"
-    destacado: document.getElementById("Destacado").value, // "S"
-    precio: parseFloat(document.getElementById("Precio").value),
-    tipo: {
-      id: parseInt(document.getElementById("idTipo").value)
-    },
-    fechaAlta: new Date().toISOString().slice(0, 10)  // "YYYY-MM-DD"
+    nombre: document.getElementById("nombre").value,
+    descripcion: document.getElementById("descripcion").value,
+    fechaInicio: document.getElementById("fechaInicio").value,
+    unidadDuracion: document.getElementById("unidadDuracion").value,  // "HORAS"
+    duracion: parseInt(document.getElementById("duracion").value),
+    direccion: document.getElementById("direccion").value,
+    aforoMaximo: parseInt(document.getElementById("aforo").value),
+    precio: parseInt(document.getElementById("precio").value),
+    tipo: 
+      {idTipo:parseInt(document.getElementById("idTipo").value)},
+    fechaAlta: Date.now,
+    estado: 'ACTIVO',
+    destacado: 'N'
+
   };
+
   try {
     const response = await fetch('http://localhost:9003/evento/alta', {
       method: 'POST',
@@ -166,24 +154,48 @@ document.getElementById("formAltaEvento").addEventListener("submit", async funct
       },
       body: JSON.stringify(nuevoEvento)
     });
-
+  
     if (!response.ok) {
-      throw new Error('No se pudo dar de alta el evento');
+      const errorDetails = await response.json();
+      throw new Error('Error al crear el evento: ' + JSON.stringify(errorDetails));
     }
-
+  
     const eventoCreado = await response.json();
-
     eventos.push(eventoCreado);
-
     renderTabla();
-
     document.getElementById("formAltaEvento").reset();
-
     alert("Evento dado de alta con éxito");
-
+  
   } catch (error) {
+    console.error("Error al dar de alta el evento:", error.message);
     alert("Error al dar de alta el evento: " + error.message);
   }
+  // try {
+  //   const response = await fetch('http://localhost:9003/evento/alta', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(nuevoEvento)
+  //   });
+
+  //   if (!response.ok) {
+  //     throw new Error('No se pudo dar de alta el evento');
+  //   }
+
+  //   const eventoCreado = await response.json();
+
+  //   eventos.push(eventoCreado);
+
+  //   renderTabla();
+
+  //   document.getElementById("formAltaEvento").reset();
+
+  //   alert("Evento dado de alta con éxito");
+
+  // } catch (error) {
+  //   alert("Error al dar de alta el evento: " + error.message);
+  // }
 });
 
 // Función para mostrar los detalles del evento
