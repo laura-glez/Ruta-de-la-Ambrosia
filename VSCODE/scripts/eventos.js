@@ -123,45 +123,79 @@ document.getElementById("altaEvento").addEventListener("click", function () {
   document.getElementById("formAltaEvento").style.display="block";
 });
 
-document.getElementById("formAltaEvento").addEventListener("submit", function (event) {
+
+document.getElementById("formAltaEvento").addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  const nombre = document.getElementById("Nombre").value;
-  const estado = document.getElementById("Estado").value.toLowerCase();
-  const aforo = document.getElementById("Aforo").value;
+  //const fechaAlta = new Date().toISOString();  
 
   let nuevoEvento = {
-    id: (eventos.length + 1).toString().padStart(2, '0'),
-    nombre: nombre,
-    estado: estado,
-    aforo: aforo
+    nombre: document.getElementById("nombre").value,
+    descripcion: document.getElementById("descripcion").value,
+    fechaInicio: document.getElementById("fechaInicio").value,
+    unidadDuracion: document.getElementById("unidadDuracion").value,  // "HORAS"
+    duracion: parseInt(document.getElementById("duracion").value),
+    direccion: document.getElementById("direccion").value,
+    aforoMaximo: parseInt(document.getElementById("aforo").value),
+    precio: parseInt(document.getElementById("precio").value),
+    tipo: 
+      {idTipo:parseInt(document.getElementById("idTipo").value)},
+    fechaAlta: Date.now,
+    estado: 'ACTIVO',
+    destacado: 'N'
+
   };
 
-  eventos.push(nuevoEvento);
+  try {
+    const response = await fetch('http://localhost:9003/evento/alta', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(nuevoEvento)
+    });
+  
+    if (!response.ok) {
+      const errorDetails = await response.json();
+      throw new Error('Error al crear el evento: ' + JSON.stringify(errorDetails));
+    }
+  
+    const eventoCreado = await response.json();
+    eventos.push(eventoCreado);
+    renderTabla();
+    document.getElementById("formAltaEvento").reset();
+    alert("Evento dado de alta con éxito");
+  
+  } catch (error) {
+    console.error("Error al dar de alta el evento:", error.message);
+    alert("Error al dar de alta el evento: " + error.message);
+  }
+  // try {
+  //   const response = await fetch('http://localhost:9003/evento/alta', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(nuevoEvento)
+  //   });
 
-  document.getElementById("Nombre").value = '';
-  document.getElementById("Estado").value = '';
-  document.getElementById("Aforo").value = '';
+  //   if (!response.ok) {
+  //     throw new Error('No se pudo dar de alta el evento');
+  //   }
 
-  renderTabla();
-});
-document.getElementById("formModificarEvento").addEventListener("submit", function (event) {
-  event.preventDefault();
+  //   const eventoCreado = await response.json();
 
-  const index = this.dataset.index;
-  const nuevoNombre = document.getElementById("modNombre").value;
-  const nuevoEstado = document.getElementById("modEstado").value.toLowerCase();
-  const nuevoAforo = document.getElementById("modAforo").value;
+  //   eventos.push(eventoCreado);
 
-  eventos[index] = {
-    ...eventos[index],
-    nombre: nuevoNombre,
-    estado: nuevoEstado,
-    aforo: nuevoAforo
-  };
+  //   renderTabla();
 
-  this.style.display = "none";
-  renderTabla();
+  //   document.getElementById("formAltaEvento").reset();
+
+  //   alert("Evento dado de alta con éxito");
+
+  // } catch (error) {
+  //   alert("Error al dar de alta el evento: " + error.message);
+  // }
 });
 
 // Función para mostrar los detalles del evento
