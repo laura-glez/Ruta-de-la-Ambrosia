@@ -336,7 +336,7 @@ opacity: 0;
 }
 
 /* Botón de cierre (X) */
-#cerrarPopup {
+#cerrarPopupDetalles, #cerrarPopupForm {
   position: absolute;
   top: 0.1em; right: 0.5em;
   background: transparent;

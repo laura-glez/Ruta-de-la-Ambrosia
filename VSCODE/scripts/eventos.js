@@ -208,22 +208,29 @@ document.getElementById('cerrarPopupDetalles').addEventListener('click', async (
     `;
 }
 
+
+    // // Agregar el evento al hacer clic en la imagen de "Ver"
+    // img.addEventListener("click", function () {
+    //   mostrarDatosEvento(e); 
+    // });
+
 document.getElementById("altaEvento").addEventListener("click", function () {
-  document.getElementById("formAltaEvento").style.display="block";
+  mostrarFormularoAlta();
+  
 });
 
 // Función para mostrar el formulario de alta
-function mostrarFormularoAlta(evento) {
-  const popup = document.getElementById('popup');
+function mostrarFormularoAlta() {
+  const popup = document.getElementById('popupForm');
   const overlay = document.getElementById('popup-overlay');
-  const divDetalles = document.getElementById('popup-content');
+  document.getElementById("popup-contentForm").style.display="block";
 
   popup.classList.add('show');
   popup.style.display = 'block';
   overlay.style.display = 'block';
 
 
-document.getElementById('cerrarPopupDetalles').addEventListener('click', async () => {
+document.getElementById('cerrarPopupForm').addEventListener('click', async () => {
 
   popup.classList.remove('show');
 
@@ -232,6 +239,5 @@ document.getElementById('cerrarPopupDetalles').addEventListener('click', async (
     overlay.style.display = 'none';
   }, 200); // coincide con la duración de la animación
 });
-
 
 }
