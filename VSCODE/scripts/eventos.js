@@ -119,9 +119,7 @@ function renderTabla() {
     });
 }
 
-document.getElementById("altaEvento").addEventListener("click", function () {
-  document.getElementById("formAltaEvento").style.display="block";
-});
+
 
 
 document.getElementById("formAltaEvento").addEventListener("submit", async function (event) {
@@ -170,32 +168,6 @@ document.getElementById("formAltaEvento").addEventListener("submit", async funct
     console.error("Error al dar de alta el evento:", error.message);
     alert("Error al dar de alta el evento: " + error.message);
   }
-  // try {
-  //   const response = await fetch('http://localhost:9003/evento/alta', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(nuevoEvento)
-  //   });
-
-  //   if (!response.ok) {
-  //     throw new Error('No se pudo dar de alta el evento');
-  //   }
-
-  //   const eventoCreado = await response.json();
-
-  //   eventos.push(eventoCreado);
-
-  //   renderTabla();
-
-  //   document.getElementById("formAltaEvento").reset();
-
-  //   alert("Evento dado de alta con éxito");
-
-  // } catch (error) {
-  //   alert("Error al dar de alta el evento: " + error.message);
-  // }
 });
 
 // Función para mostrar los detalles del evento
@@ -209,7 +181,7 @@ function mostrarDatosEvento(evento) {
   overlay.style.display = 'block';
 
 
-document.getElementById('cerrarPopup').addEventListener('click', async () => {
+document.getElementById('cerrarPopupDetalles').addEventListener('click', async () => {
 
   popup.classList.remove('show');
 
@@ -218,7 +190,6 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     overlay.style.display = 'none';
   }, 200); // coincide con la duración de la animación
 });
-
 
   //divDetalles.style.display = "block"; // Hacer visible el div de detalles
   divDetalles.innerHTML = `
@@ -235,4 +206,32 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
     <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
     `;
+}
+
+document.getElementById("altaEvento").addEventListener("click", function () {
+  document.getElementById("formAltaEvento").style.display="block";
+});
+
+// Función para mostrar el formulario de alta
+function mostrarFormularoAlta(evento) {
+  const popup = document.getElementById('popup');
+  const overlay = document.getElementById('popup-overlay');
+  const divDetalles = document.getElementById('popup-content');
+
+  popup.classList.add('show');
+  popup.style.display = 'block';
+  overlay.style.display = 'block';
+
+
+document.getElementById('cerrarPopupDetalles').addEventListener('click', async () => {
+
+  popup.classList.remove('show');
+
+  setTimeout(() => {
+    popup.style.display = 'none';
+    overlay.style.display = 'none';
+  }, 200); // coincide con la duración de la animación
+});
+
+
 }

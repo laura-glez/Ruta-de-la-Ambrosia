@@ -42,6 +42,10 @@
     <h2>Eventos</h2>
     <h2 id="altaEvento"><img id="imagen" src="https://img.icons8.com/?size=100&id=Vm6fWNiGKIpH&format=png&color=000000" alt="icono" width="30" height="30"></h2>
 
+    <div id="popupForm">
+      <button id="cerrarPopupForm">&times;</button>
+      <div id="popup-contentForm">Cargando...</div>
+
     <form id="formAltaEvento" style="display: none;">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" required><br><br>
@@ -80,6 +84,8 @@
       <button type="submit">Guardar Cambios</button>
 </form> <br>
 
+</div>
+
     <table id="tabla">
         <thead>
                 <tr>
@@ -117,7 +123,7 @@
 
   <!-- Contenedor del pop-up -->
   <div id="popup">
-    <button id="cerrarPopup">&times;</button>
+    <button id="cerrarPopupDetalles">&times;</button>
     <div id="popup-content">Cargando...</div>
   </div>
 
