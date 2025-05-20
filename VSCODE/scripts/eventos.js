@@ -215,14 +215,39 @@ document.getElementById('cerrarPopupDetalles').addEventListener('click', async (
     // });
 
 document.getElementById("altaEvento").addEventListener("click", function () {
-  mostrarFormularoAlta();
+  mostrarAlta();
   
 });
+
+function mostrarAlta(){
+    // Elementos
+    const modal = document.getElementById("popupForm");
+    //const abrirBtn = document.getElementById("altaEvento");
+    const cerrarBtn = document.getElementById("cerrarPopupForm");
+    const overlay = document.getElementById('popup-overlay');
+  
+    // Abrir el modal
+    abrirBtn.onclick = function () {
+      modal.style.display = "block";
+    };
+  
+    // Cerrar el modal al hacer clic en la X
+    cerrarBtn.onclick = function () {
+      modal.style.display = "none";
+    };
+  
+    // Cerrar el modal al hacer clic fuera del contenido
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+}
 
 // Función para mostrar el formulario de alta
 function mostrarFormularoAlta() {
   const popup = document.getElementById('popupForm');
-  const overlay = document.getElementById('popup-overlay');
+  
   document.getElementById("popup-contentForm").style.display="block";
 
   popup.classList.add('show');
