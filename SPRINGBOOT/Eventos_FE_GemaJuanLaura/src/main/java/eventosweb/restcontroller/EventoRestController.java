@@ -38,8 +38,8 @@ public class EventoRestController {
 	}
 	
 	@PostMapping("/alta")
-	public Evento alta(@RequestBody Evento evento){
-		return edao.insertOne(evento);
+	public Evento alta(@RequestBody Evento evento) {
+	  return edao.insertOne(evento);
 	}
 	
 	 @DeleteMapping("/eliminar/{idEvento}")

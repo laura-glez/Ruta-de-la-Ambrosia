@@ -123,45 +123,67 @@ document.getElementById("altaEvento").addEventListener("click", function () {
   document.getElementById("formAltaEvento").style.display="block";
 });
 
-document.getElementById("formAltaEvento").addEventListener("submit", function (event) {
+
+document.getElementById("formAltaEvento").addEventListener("submit", async function (event) {
   event.preventDefault();
 
   const nombre = document.getElementById("Nombre").value;
-  const estado = document.getElementById("Estado").value.toLowerCase();
+  const descripcion = document.getElementById("Descripcion").value;
+  const fechaInicio = document.getElementById("FechaInicio").value;  
+  const unidadDuracion = document.getElementById("UnidadDuracion").value;
+  const duracion = document.getElementById("Duracion").value;
+  const direccion = document.getElementById("Direccion").value;
   const aforo = document.getElementById("Aforo").value;
+  const estado = document.getElementById("Estado").value;
+  const precio = document.getElementById("Precio").value;
+  const idTipo = document.getElementById("idTipo").value;
+  
+
+  const fechaAlta = new Date().toISOString();  
+
 
   let nuevoEvento = {
-    id: (eventos.length + 1).toString().padStart(2, '0'),
-    nombre: nombre,
-    estado: estado,
-    aforo: aforo
+    nombre: document.getElementById("Nombre").value,
+    descripcion: document.getElementById("Descripcion").value,
+    fechaInicio: document.getElementById("FechaInicio").value,
+    unidadDuracion: document.getElementById("UnidadDuracion").value,  // "HORAS"
+    duracion: parseInt(document.getElementById("Duracion").value),
+    direccion: document.getElementById("Direccion").value,
+    aforoMaximo: parseInt(document.getElementById("Aforo").value),
+    estado: document.getElementById("Estado").value, // "ACTIVO"
+    destacado: document.getElementById("Destacado").value, // "S"
+    precio: parseFloat(document.getElementById("Precio").value),
+    tipo: {
+      id: parseInt(document.getElementById("idTipo").value)
+    },
+    fechaAlta: new Date().toISOString().slice(0, 10)  // "YYYY-MM-DD"
   };
+  try {
+    const response = await fetch('http://localhost:9003/evento/alta', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(nuevoEvento)
+    });
 
-  eventos.push(nuevoEvento);
+    if (!response.ok) {
+      throw new Error('No se pudo dar de alta el evento');
+    }
 
-  document.getElementById("Nombre").value = '';
-  document.getElementById("Estado").value = '';
-  document.getElementById("Aforo").value = '';
+    const eventoCreado = await response.json();
 
-  renderTabla();
-});
-document.getElementById("formModificarEvento").addEventListener("submit", function (event) {
-  event.preventDefault();
+    eventos.push(eventoCreado);
 
-  const index = this.dataset.index;
-  const nuevoNombre = document.getElementById("modNombre").value;
-  const nuevoEstado = document.getElementById("modEstado").value.toLowerCase();
-  const nuevoAforo = document.getElementById("modAforo").value;
+    renderTabla();
 
-  eventos[index] = {
-    ...eventos[index],
-    nombre: nuevoNombre,
-    estado: nuevoEstado,
-    aforo: nuevoAforo
-  };
+    document.getElementById("formAltaEvento").reset();
 
-  this.style.display = "none";
-  renderTabla();
+    alert("Evento dado de alta con éxito");
+
+  } catch (error) {
+    alert("Error al dar de alta el evento: " + error.message);
+  }
 });
 
 // Función para mostrar los detalles del evento
