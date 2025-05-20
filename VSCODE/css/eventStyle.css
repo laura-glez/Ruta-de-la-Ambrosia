@@ -1,21 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'sans source 3', sans-serif;
 }
 
 body, html {
   width: 100%;
   height: 100%;
   background-color: #f8f8f8;
-  color: #252a3b;
+  color: #2e2e2e;
 }
 
 #contenedor {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 50px auto;
   background-color: #fff;
   padding: 30px;
@@ -35,6 +34,8 @@ h1, h2 {
   left: 100px;
   bottom:47px;}
 
+
+ /*FORMULARIOS*/ 
 form {
   margin-top: 20px;
 }
@@ -70,6 +71,7 @@ form button:hover {
   background-color:#66417e;
 }
 
+/*TABLA DE EVENTOS*/
 #tabla {
   width: 100%;
   border-collapse: collapse;
@@ -145,9 +147,9 @@ form button:hover {
     font-size: 13px;
   }
 }
-
+/*NAVBAR*/
 header {
-    background: #f5deb3;
+    background: #750f3b;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
@@ -156,24 +158,27 @@ header {
     width: 100%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 1000;
+    font-family: 'cinzel';
 }
 
 header .logo {
-    font-weight: 800;
-    font-size: 24px;
-    color: #111;
+  font-weight: 800;
+  font-size: 24px;
+  color: #111;
 }
 
 header nav a {
-    margin-left: 60px;
-    text-decoration: none;
-    font-weight: 600;
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-family: 'cinzel';
 }
+
 
 .nav1 ul {
   list-style: none;
-
-  background: wheat;
+  background:#750f3b;
 
 }
 
@@ -195,12 +200,13 @@ header nav a {
   display: block;
   padding: 10px 17px;
   line-height: 1.2em;
-  color: black;
-  text-decoration: none;
+  color:  #f9f4ef;
+  transition: color 0.7s ;
+  font-family: 'cinzel';
 }
 
 .nav1 a:hover {
- color:#800020;
+ color:#f5deb3;
 }
 
 .nav1 li ul {
@@ -260,7 +266,6 @@ opacity: 0;
   opacity: 1; /* Muestra el segundo icono */
 }
 
-
 /*POP-UP*/
 /* Fondo oscuro difuminado */
 #popup-overlay {
@@ -283,11 +288,28 @@ opacity: 0;
   border-radius: 16px;
   padding: 30px 20px 20px;
   width: 90%;
-  max-width: 400px;
+  max-width: 800px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   transition: transform 0.2s ease, opacity 0.2s ease;
   opacity: 0;
+  padding: 20px;
+  font-family: 'sourcer sans 3';
+
+  h2{
+    font-family: 'cinzel';   /*ESTA TIPO PARA EL FINAL DEBE SER LA PLAYFAIR*/
+    font-size: 2rem;
+    color: #750f3b;
+    text-align: center;;
+    font-weight: bolder;
+  }
+
+  strong{
+    font-size: 1rem;
+    font-family: 'cinzel'; /*ESTA TIPO PARA EL FINAL DEBE SER LA PLAYFAIR*/
+    margin:  0 7px 0 0 ;
+  }
+
 }
 
 /* Mostrar ventana con animación */
@@ -297,13 +319,13 @@ opacity: 0;
 }
 
 /* Botón de cierre (X) */
-#closePopup {
+#cerrarPopup {
   position: absolute;
-  top: 10px; right: 10px;
+  top: 0.1em; right: 0.5em;
   background: transparent;
   border: none;
-  font-size: 24px;
-  color: #333;
+  font-size: 3rem;
+  color: #2e2e2e;
   cursor: pointer;
 }
 
@@ -311,4 +333,8 @@ opacity: 0;
 #popup-content {
   margin-top: 20px;
   font-family: sans-serif;
+  padding: 1em;
+  p{
+    padding:0.5em;
+  }
 }
