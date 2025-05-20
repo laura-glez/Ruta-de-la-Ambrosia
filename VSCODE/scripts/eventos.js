@@ -1,5 +1,5 @@
 const tabla = document.getElementById("tabla").querySelector("tbody");
-const divDetalles = document.getElementById("evento-detalle"); // Div para mostrar detalles
+
 let eventos = [];
 
 // Función para obtener todos los eventos
@@ -166,7 +166,27 @@ document.getElementById("formModificarEvento").addEventListener("submit", functi
 
 // Función para mostrar los detalles del evento
 function mostrarDatosEvento(evento) {
-  divDetalles.style.display = "block"; // Hacer visible el div de detalles
+  const popup = document.getElementById('popup');
+  const overlay = document.getElementById('popup-overlay');
+  const divDetalles = document.getElementById('popup-content');
+
+  popup.classList.add('show');
+  popup.style.display = 'block';
+  overlay.style.display = 'block';
+
+
+document.getElementById('cerrarPopup').addEventListener('click', async () => {
+
+  popup.classList.remove('show');
+
+  setTimeout(() => {
+    popup.style.display = 'none';
+    overlay.style.display = 'none';
+  }, 200); // coincide con la duración de la animación
+});
+
+
+  //divDetalles.style.display = "block"; // Hacer visible el div de detalles
   divDetalles.innerHTML = `
     <h2>Detalles del Evento: ${evento.nombre}</h2>
     <p><strong>ID:</strong> ${evento.idEvento}</p>
@@ -176,7 +196,7 @@ function mostrarDatosEvento(evento) {
     <p><strong>Fecha Inicio:</strong> ${evento.fechaInicio || "Sin fecha de inicio disponible"}</p>
     <p><strong>Duracion Evento:</strong> ${evento.duracion} ${evento.unidadDuracion || "Sin duración"}</p>
     <p><strong>Direccion:</strong> ${evento.direccion || "Sin direccion"}</p>
-    <p><strong>Destacado:</strong> ${evento.destacado }</p>
+    <p><strong>Destacado:</strong> ${evento.destacado}</p>
     <p><strong>Precio:</strong> ${evento.precio || "Sin precio definido"}</p>
     <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
     <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>

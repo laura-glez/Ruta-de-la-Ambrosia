@@ -6,6 +6,12 @@
     <title>Eventos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/eventStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+    </style>
 </head>
 <body>
   <header>
@@ -77,9 +83,18 @@
     <button type="submit">Guardar Cambios</button>
   </form>
 
-</div>
-<div id="evento-detalle" style="display: none;"></div> <!-- Contenedor para los detalles del evento -->
-    <script src="scripts/eventos.js">
-    </script>
+  <!-- Botón para abrir el pop-up -->
+  <!-- <button id="abrirPopup">Abrir pop-up</button> -->
+
+  <!-- Fondo oscuro desenfocado -->
+  <div id="popup-overlay"></div>
+
+  <!-- Contenedor del pop-up -->
+  <div id="popup">
+    <button id="cerrarPopup">&times;</button>
+    <div id="popup-content">Cargando...</div>
+  </div>
+
+  <script src="scripts/eventos.js"></script>
 </body>
 </html>
