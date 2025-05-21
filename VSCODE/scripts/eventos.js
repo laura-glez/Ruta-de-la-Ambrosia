@@ -80,10 +80,17 @@ function renderTabla() {
       const eventoAmodificar = eventos[index];
 
       document.getElementById("formModificarEvento").style.display = "block";
-      document.getElementById("modNombre").value = eventoAmodificar.nombre;
-      document.getElementById("modEstado").value = eventoAmodificar.estado;
-      document.getElementById("modAforo").value = eventoAmodificar.aforoMaximo;
       document.getElementById("formModificarEvento").dataset.index = index;
+      document.getElementById("MODNombre").value = eventoAmodificar.nombre;
+      document.getElementById("MODdescripcion").value = eventoAmodificar.descripcion;
+      document.getElementById("MODfechaInicio").value = eventoAmodificar.fechaInicio;
+      document.getElementById("MODunidadDuracion").value = eventoAmodificar.unidadDuracion;
+      document.getElementById("MODduracion").value = eventoAmodificar.duracion;
+      document.getElementById("MODdireccion").value = eventoAmodificar.direccion;
+      document.getElementById("MODaforo").value = eventoAmodificar.aforo;
+      document.getElementById("MODprecio").value = eventoAmodificar.precio;
+      document.getElementById("MODidTipo").value = eventoAmodificar.idTipo;
+
     });
 
     const celdaEliminar = fila.insertCell();
@@ -170,32 +177,6 @@ document.getElementById("formAltaEvento").addEventListener("submit", async funct
     console.error("Error al dar de alta el evento:", error.message);
     alert("Error al dar de alta el evento: " + error.message);
   }
-  // try {
-  //   const response = await fetch('http://localhost:9003/evento/alta', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(nuevoEvento)
-  //   });
-
-  //   if (!response.ok) {
-  //     throw new Error('No se pudo dar de alta el evento');
-  //   }
-
-  //   const eventoCreado = await response.json();
-
-  //   eventos.push(eventoCreado);
-
-  //   renderTabla();
-
-  //   document.getElementById("formAltaEvento").reset();
-
-  //   alert("Evento dado de alta con éxito");
-
-  // } catch (error) {
-  //   alert("Error al dar de alta el evento: " + error.message);
-  // }
 });
 
 // Función para mostrar los detalles del evento
