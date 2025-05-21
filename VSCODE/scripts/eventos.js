@@ -69,6 +69,7 @@ function renderTabla() {
     });
  
     const celdaModificar = fila.insertCell();
+    mostrarModificarEvento();
     const img2 = document.createElement("img");
     img2.src = "https://img.icons8.com/?size=100&id=8192&format=png&color=555758";
     img2.alt = "Modificar";
@@ -79,6 +80,7 @@ function renderTabla() {
     
     // Añadir evento para modificar
     img2.addEventListener("click", function () {
+      
       const eventoAmodificar = eventos[index]; // Obtenemos el evento a modificar
       document.getElementById("formModificarEvento").style.display = "block"; // Mostrar el formulario
       document.getElementById("formModificarEvento").dataset.index = index; // Guardamos el índice del evento
@@ -99,7 +101,7 @@ function renderTabla() {
     // Formulario de modificación (submit)
     document.getElementById("formModificarEvento").addEventListener("submit", function (e) {
       e.preventDefault();
-    
+      
       const idEvento = this.dataset.index; // Usamos el índice del evento en el array
       const eventoModificado = {
         idEvento: eventos[idEvento].idEvento,  // Asegúrate de usar 'idEvento' como nombre del campo
@@ -273,6 +275,18 @@ function mostarAlta(){
       cerrarPopUp();
     }
 
+function mostrarModificarEvento(){
+  // Asignar event listener para abrir el modal con el formulario
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('popup-overlay');
+        popup.classList.add('show');
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+    
+      // Event listener para cerrar el modal
+      cerrarPopUp();
+}
+
     function cerrarPopUp(){
       document.getElementById('cerrarPopup').addEventListener('click', () => {
         const popup = document.getElementById('popup');
@@ -284,3 +298,4 @@ function mostarAlta(){
         }, 200);
       });
     }
+  

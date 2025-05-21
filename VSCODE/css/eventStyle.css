@@ -31,8 +31,8 @@ h1, h2 {
 #imagen{
   float: left;
   position: relative;
-  left: 100px;
-  bottom:47px;}
+  left: 152px;
+  bottom:48px;}
 
 
  /*FORMULARIOS*/ 
@@ -361,3 +361,4 @@ opacity: 0;
     text-shadow: 4px 2px 14px rgba(0,0,0,0.6);
   }
 }
+
