@@ -13,47 +13,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import eventosweb.modelo.dao.ReservaDao;
-import eventosweb.modelo.entities.Reserva;
+import eventosweb.modelo.dao.UsuarioDao;
+import eventosweb.modelo.entities.Evento;
+import eventosweb.modelo.entities.Usuario;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/reserva")
-public class ReservaRestController {
+@RequestMapping("/usuario")
+public class UsuarioRestController {
 	@Autowired
-	private ReservaDao rdao;
+	private UsuarioDao userdao;
 	
 	@GetMapping("/todos")
-	public List<Reserva> todos(){
-		return rdao.todos();
+	public List<Usuario> todos(){
+		return userdao.todos();
 	}
 	
 	@GetMapping("/nombre/{cadena}")
-	public List<Reserva> subcadena(@PathVariable String cadena){
-		return rdao.porNombreContain(cadena);
+	public List<Usuario> subcadena(@PathVariable String cadena){
+		return userdao.porNombreContain(cadena);
 	}
-
-	@GetMapping("/uno/{idReserva}")
-	public Reserva uno(@PathVariable Integer idReserva){
-		return rdao.buscarUno(idReserva);
+	
+	@GetMapping("/uno/{idUsuario}")
+	public Usuario uno(@PathVariable Integer idUsuario){
+		return userdao.buscarUno(idUsuario);
 	}
 	
 	@PostMapping("/alta")
-	public Reserva alta(@RequestBody Reserva reserva) {
-	  return rdao.insertOne(reserva);
+	public Usuario alta(@RequestBody Usuario usuario) {
+	  return userdao.insertOne(usuario);
 	}
 	
-	 @DeleteMapping("/eliminar/{idReserva}")
-	 public Integer Eliminar (@PathVariable int idReserva) {
-		 return rdao.eliminar(idReserva);
+	 @DeleteMapping("/eliminar/{idUsuario}")
+	 public Integer Eliminar (@PathVariable Integer idUsuario) {
+		 return userdao.eliminar(idUsuario);
 	 }
 	 
 	 @PutMapping("/modificar")
-		public Integer modificar(@RequestBody Reserva reserva) {
-		 return rdao.modificar(reserva);
+		public Integer modificar(@RequestBody Usuario usuario) {
+		 return userdao.modificar(usuario);
 		  
 		}
-	    
-
 }

@@ -163,7 +163,9 @@ function renderTabla() {
     img4.height = 30;
     img4.id = "reservas";
     celdaReservas.appendChild(img4);
-
+    img4.addEventListener("click", function () {
+      mostrarDatosReserva(e); 
+    });
 
     // Añadir evento de eliminación con confirmación
     img3.addEventListener("click", async function () {
@@ -283,6 +285,38 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     `;
 
 
+    function mostrarDatosReserva(evento) {
+      const popup = document.getElementById('popup');
+      const overlay = document.getElementById('popup-overlay');
+      const divDetallesReserva = document.getElementById('popup-content');
+    
+      popup.classList.add('show');
+      popup.style.display = 'block';
+      overlay.style.display = 'block';
+    
+    
+    document.getElementById('cerrarPopup').addEventListener('click', async () => {
+    
+      popup.classList.remove('show');
+    
+      setTimeout(() => {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+      }, 200); // coincide con la duración de la animación
+    });
+    
+    
+      //divDetalles.style.display = "block"; // Hacer visible el div de detalles
+      divDetallesReserva.innerHTML = `
+        <h2>Detalles del Evento: </h2>
+        <p><strong>IdEvento:</strong> ${reserva.idEvento}</p>
+        <p><strong>IdUsario:</strong> ${reserva.idUsuario}</p>
+        <p><strong>IdReserva:</strong> ${reserva.idReserva}</p>
+        <p><strong>PrecioVenta:</strong> ${reserva.precioVenta}</p>
+        <p><strong>Observaciones:</strong> ${reserva.observaciones}</p>
+        <p><strong>Cantidad:</strong> ${reserva.cantidad} </p>
+        `;
+
 
     
-}
+}}

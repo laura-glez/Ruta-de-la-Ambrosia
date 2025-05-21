@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import eventosweb.modelo.entities.Reserva;
 
 public interface ReservaRepository extends JpaRepository<Reserva, Integer>{
-	public List<Reserva> findByNombreContaining(String cadena);
+	
 }
