@@ -63,6 +63,8 @@ function renderTabla() {
     img.id = "ver";
     celdaVer.appendChild(img);
 
+    
+
     // Agregar el evento al hacer clic en la imagen de "Ver"
     img.addEventListener("click", function () {
       mostrarDatosEvento(e); 
@@ -153,6 +155,16 @@ function renderTabla() {
     img3.id = "eliminar";
     celdaEliminar.appendChild(img3);
 
+    const celdaReservas = fila.insertCell();
+    const img4 = document.createElement("img");
+    img4.src = "https://img.icons8.com/?size=100&id=37979&format=png&color=000000";
+    img4.alt = "reservas";
+    img4.width = 30;
+    img4.height = 30;
+    img4.id = "reservas";
+    celdaReservas.appendChild(img4);
+
+
     // Añadir evento de eliminación con confirmación
     img3.addEventListener("click", async function () {
       const confirmDelete = confirm(`¿Estás seguro de eliminar el evento: ${e.nombre}?`);
@@ -175,6 +187,8 @@ function renderTabla() {
         }}});
     
     });
+
+    
 }
 
 document.getElementById("altaEvento").addEventListener("click", function () {
@@ -267,4 +281,8 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
     <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
     `;
+
+
+
+    
 }
