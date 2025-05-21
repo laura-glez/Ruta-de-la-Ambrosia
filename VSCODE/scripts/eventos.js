@@ -93,7 +93,7 @@ function renderTabla() {
       document.getElementById("MODaforo").value = eventoAmodificar.aforoMaximo;
       document.getElementById("MODprecio").value = eventoAmodificar.precio;
       document.getElementById("MODidTipo").value = eventoAmodificar.tipo.idTipo;
-      document.getElementById("MODestado").value=eventoAmodificar.estado;
+      document.getElementById("MODestado").value = eventoAmodificar.estado;
     });
     
     // Formulario de modificación (submit)
@@ -102,23 +102,22 @@ function renderTabla() {
     
       const idEvento = this.dataset.index; // Usamos el índice del evento en el array
       const eventoModificado = {
-        id: eventos[idEvento].id, // Asegúrate de pasar el ID del evento
+        idEvento: eventos[idEvento].idEvento,  // Asegúrate de usar 'idEvento' como nombre del campo
         nombre: document.getElementById("MODnombre").value,
         descripcion: document.getElementById("MODdescripcion").value,
         fechaInicio: document.getElementById("MODfechaInicio").value,
         unidadDuracion: document.getElementById("MODunidadDuracion").value,
         duracion: parseInt(document.getElementById("MODduracion").value),
-        estado:document.getElementById("MODestado").value,
+        estado: document.getElementById("MODestado").value,
         direccion: document.getElementById("MODdireccion").value,
         aforoMaximo: parseInt(document.getElementById("MODaforo").value),
         precio: parseInt(document.getElementById("MODprecio").value),
-        tipo: { idTipo: parseInt(document.getElementById("MODidTipo").value) ,
-        },
+        tipo: { idTipo: parseInt(document.getElementById("MODidTipo").value) },
       };
     
       // Enviar el evento modificado al servidor
       fetch(`http://localhost:9003/evento/modificar`, {
-        method: "POST",
+        method: "PUT", 
         headers: {
           "Content-Type": "application/json"
         },
@@ -131,16 +130,18 @@ function renderTabla() {
           return response.json(); // El backend devuelve el evento actualizado
         })
         .then(eventoActualizado => {
-          console.log("Evento actualizado:", eventoActualizado);
-          alert("Evento modificado correctamente.");
+          //console.log("Evento actualizado:", eventoActualizado);
+          console.log("Evento se ha actualizado con exito");
           document.getElementById("formModificarEvento").style.display = "none"; // Ocultar formulario
           eventos[idEvento] = eventoActualizado; // Actualizar el evento en el array
+          getEventos();
           renderTabla(); // Volver a renderizar la tabla
         })
         .catch(error => {
           console.error("Error al modificar el evento:", error);
           alert("Hubo un problema al modificar el evento.");
         });
+        
     });
 
     const celdaEliminar = fila.insertCell();

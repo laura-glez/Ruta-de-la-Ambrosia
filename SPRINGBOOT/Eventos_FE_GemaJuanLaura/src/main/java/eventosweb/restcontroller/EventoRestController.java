@@ -48,7 +48,7 @@ public class EventoRestController {
 		 return edao.eliminar(idEvento);
 	 }
 	 
-	 @PostMapping("/modificar")
+	 @PutMapping("/modificar")
 		public Integer modificar(@RequestBody Evento evento) {
 		 return edao.modificar(evento);
 		  
