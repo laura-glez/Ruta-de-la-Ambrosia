@@ -79,7 +79,7 @@
     <!-- Fondo oscuro desenfocado para el modal -->
     <div id="popup-overlay"></div>
   
-    <!-- Contenedor del pop-up (modal) -->
+    <!-- Contenedor del pop-up (formulario) -->
     <div id="popup">
       <button id="cerrarPopup">&times;</button>
       <div id="popup-content">
@@ -87,33 +87,33 @@
         <form id="formAltaEvento">
           <h2>Alta de Evento</h2>
           <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" required><br><br>
+          <input type="text" placeholder="Nombre del evento" id="nombre" required><br><br>
   
           <label for="descripcion">Descripción:</label>
-          <input type="text" id="descripcion" required><br><br>
+          <input type="text" id="descripcion" required placeholder="Descripcion del evento"><br><br>
   
           <label for="fechaInicio">Fecha Inicio:</label>
           <input type="date" id="fechaInicio" required><br><br>
-  
+
+          <label for="duracion">Duración:</label>
+          <input type="number" id="duracion" required placeholder="Duración">
+
           <label for="unidadDuracion">Unidad de duración:</label>
           <select id="unidadDuracion">
             <option value="HORAS">Horas</option>
             <option value="DIAS">Días</option>
           </select><br><br>
   
-          <label for="duracion">Duración:</label>
-          <input type="number" id="duracion" required><br><br>
-  
           <label for="direccion">Dirección:</label>
-          <input type="text" id="direccion" required><br><br>
+          <input type="text" id="direccion" required placeholder="Dirección"><br><br>
   
           <label for="aforo">Aforo:</label>
-          <input type="number" id="aforo" required min="1" max="30"><br><br>
+          <input type="number" id="aforo" required min="1" max="30" placeholder="Aforo máximo"><br><br>
   
           <label for="precio">Precio:</label>
-          <input type="number" id="precio" required min="15"><br><br>
+          <input type="number" id="precio" required min="15" placeholder="Precio por persona"><br><br>
   
-          <label for="idTipo">Id Tipo:</label>
+          <label for="idTipo">Tipo:</label>
           <select id="idTipo">
             <option value="1">Vino</option>
             <option value="2">Cerveza</option>
