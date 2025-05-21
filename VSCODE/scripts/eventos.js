@@ -76,21 +76,71 @@ function renderTabla() {
     img2.height = 24;
     img2.id = "modificar";
     celdaModificar.appendChild(img2);
+    
+    // Añadir evento para modificar
     img2.addEventListener("click", function () {
-      const eventoAmodificar = eventos[index];
-
-      document.getElementById("formModificarEvento").style.display = "block";
-      document.getElementById("formModificarEvento").dataset.index = index;
-      document.getElementById("MODNombre").value = eventoAmodificar.nombre;
+      const eventoAmodificar = eventos[index]; // Obtenemos el evento a modificar
+      document.getElementById("formModificarEvento").style.display = "block"; // Mostrar el formulario
+      document.getElementById("formModificarEvento").dataset.index = index; // Guardamos el índice del evento
+    
+      // Rellenar el formulario con los datos actuales del evento
+      document.getElementById("MODnombre").value = eventoAmodificar.nombre;
       document.getElementById("MODdescripcion").value = eventoAmodificar.descripcion;
       document.getElementById("MODfechaInicio").value = eventoAmodificar.fechaInicio;
       document.getElementById("MODunidadDuracion").value = eventoAmodificar.unidadDuracion;
       document.getElementById("MODduracion").value = eventoAmodificar.duracion;
       document.getElementById("MODdireccion").value = eventoAmodificar.direccion;
-      document.getElementById("MODaforo").value = eventoAmodificar.aforo;
+      document.getElementById("MODaforo").value = eventoAmodificar.aforoMaximo;
       document.getElementById("MODprecio").value = eventoAmodificar.precio;
-      document.getElementById("MODidTipo").value = eventoAmodificar.idTipo;
-
+      document.getElementById("MODidTipo").value = eventoAmodificar.tipo.idTipo;
+      document.getElementById("MODestado").value=eventoAmodificar.estado;
+    });
+    
+    // Formulario de modificación (submit)
+    document.getElementById("formModificarEvento").addEventListener("submit", function (e) {
+      e.preventDefault();
+    
+      const idEvento = this.dataset.index; // Usamos el índice del evento en el array
+      const eventoModificado = {
+        id: eventos[idEvento].id, // Asegúrate de pasar el ID del evento
+        nombre: document.getElementById("MODnombre").value,
+        descripcion: document.getElementById("MODdescripcion").value,
+        fechaInicio: document.getElementById("MODfechaInicio").value,
+        unidadDuracion: document.getElementById("MODunidadDuracion").value,
+        duracion: parseInt(document.getElementById("MODduracion").value),
+        estado:document.getElementById("MODestado").value,
+        direccion: document.getElementById("MODdireccion").value,
+        aforoMaximo: parseInt(document.getElementById("MODaforo").value),
+        precio: parseInt(document.getElementById("MODprecio").value),
+        tipo: { idTipo: parseInt(document.getElementById("MODidTipo").value) ,
+        },
+      };
+    
+      // Enviar el evento modificado al servidor
+      fetch(`http://localhost:9003/evento/modificar`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(eventoModificado)
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Error al modificar el evento");
+          }
+          return response.json(); // El backend devuelve el evento actualizado
+        })
+        .then(eventoActualizado => {
+          console.log("Evento actualizado:", eventoActualizado);
+          alert("Evento modificado correctamente.");
+          document.getElementById("formModificarEvento").style.display = "none"; // Ocultar formulario
+          eventos[idEvento] = eventoActualizado; // Actualizar el evento en el array
+          renderTabla(); // Volver a renderizar la tabla
+        })
+        .catch(error => {
+          console.error("Error al modificar el evento:", error);
+          alert("Hubo un problema al modificar el evento.");
+        });
     });
 
     const celdaEliminar = fila.insertCell();

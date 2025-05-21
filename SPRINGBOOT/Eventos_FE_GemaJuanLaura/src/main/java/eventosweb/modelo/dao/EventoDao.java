@@ -11,5 +11,6 @@ public interface EventoDao {
 	Evento insertOne(Evento evento);
 	Evento buscarUno(Integer idEvento);
 	int eliminar(Integer idEvento);
+	int modificar(Evento evento);
 }
 
