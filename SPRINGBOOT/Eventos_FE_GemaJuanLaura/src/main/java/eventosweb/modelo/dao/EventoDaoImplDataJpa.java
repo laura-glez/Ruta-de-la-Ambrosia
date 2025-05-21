@@ -56,7 +56,7 @@ public class EventoDaoImplDataJpa implements EventoDao{
 				;
 			}catch (Exception e) {
 				System.out.println(e.getMessage());
-				filas=1;
+				filas=-1;
 			}
 		}else
 			filas = 0;
@@ -64,5 +64,21 @@ public class EventoDaoImplDataJpa implements EventoDao{
 		return filas;
 	}
 	
+	public int modificar(Evento evento) {
+		int filas=0;
+		if(prepo.existsById(evento.getIdEvento())) {
+			try {
+				 prepo.save(evento);
+				 filas = 1;
+			}catch(Exception e) {
+				System.err.println(e.getMessage());
+				filas= -1;
+		}
+			}else 
+				filas= 0;
+		
+		return filas;
+	}}
+	
 
-}
+

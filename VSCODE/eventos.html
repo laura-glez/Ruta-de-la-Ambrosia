@@ -18,19 +18,20 @@
     <div class="logo">Ruta a la Ambrosia</div>
     <nav class="nav nav1">
       <ul>
-        <li><a href="#">Senda de Dionisio</a></li>
-        <li><a href="#">Senda de la Hidromiel</a></li>
-        <li><a href="#">Senda Espirituosa</a></li>
         <li class="icono-usuario">
           <a href="D:\PRACTICA\Ruta-a-la-Ambrosia\VSCODE\inicioSesion.html" onclick="toggleIcon(event)">
             <img id="icono1" src="img/icons8-usuario-48 (1).png" alt="icono1" width="30" height="30">
             <img id="icono2" src="img/icons8-usuario-48.png" alt="icono2" width="30" height="30">
           </a>
         </li>
-      </ul>
+         </ul>
+    
     </nav>
-  </header>
-  <br><br><br><br>
+</header>
+<br>
+<br>
+<br>
+<br>
   <div id="contenedor">
     <h1>Administración de los Eventos</h1>
     <br>
@@ -67,68 +68,101 @@
     <h2 class="modificar titulo">Modificar Evento</h2>
     
     <form id="formModificarEvento" style="display: none;">
-      <label for="modNombre">Nombre:</label>
-      <input type="text" id="modNombre" required><br><br>
-      <label for="modEstado">Estado:</label>
-      <input type="text" id="modEstado" required><br><br>
-      <label for="modAforo">Aforo:</label>
-      <input type="number" id="modAforo" required><br><br>
-      <button type="submit">Guardar Cambios</button>
-    </form>
-  
-    <!-- Fondo oscuro desenfocado para el modal -->
-    <div id="popup-overlay"></div>
-  
-    <!-- Contenedor del pop-up (formulario) -->
-    <div id="popup">
-      <button id="cerrarPopup">&times;</button>
-      <div id="popup-content">
-        <!-- Aquí se incluye el formulario para dar de alta el evento -->
-        <form id="formAltaEvento">
-          <h2>Alta de Evento</h2>
-          <label for="nombre">Nombre:</label>
-          <input type="text" placeholder="Nombre del evento" id="nombre" required><br><br>
-  
-          <label for="descripcion">Descripción:</label>
-          <input type="text" id="descripcion" required placeholder="Descripcion del evento"><br><br>
-  
-          <label for="fechaInicio">Fecha Inicio:</label>
-          <input type="date" id="fechaInicio" required><br><br>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="MODnombre" required><br><br>
 
-          <label for="duracion">Duración:</label>
-          <input type="number" id="duracion" required placeholder="Duración">
+      <label for="descripcion">Descripcion:</label>
+      <input type="text" id="MODdescripcion" required><br><br>
 
-          <label for="unidadDuracion">Unidad de duración:</label>
-          <select id="unidadDuracion">
-            <option value="HORAS">Horas</option>
-            <option value="DIAS">Días</option>
-          </select><br><br>
+      <label for="fechaInicio">Fecha Inicio:</label>
+      <input type="date" id="MODfechaInicio" required><br><br>
+
+      <label for="unidadDuracion">Unidad de duracion:</label>
+        <select id="MODunidadDuracion"required>
+          <option value="HORAS">Horas</option>
+          <option value="DIAS">Dias</option>
+        </select>
+    
+      <label for="duracion">Duracion:</label>
+      <input type="number" id="MODduracion" required><br><br>
+
+      
+      <label for="estado">Estado:</label>
+      <select id="MODestado"required>
+        <option value="ACTIVO">ACTIVO</option>
+        <option value="TERMINADO">TERMINADO</option>
+        <option value="CANCELADO">CANCELADO</option></select> <br><br>
+
+      <label for="direccion">Direccion:</label>
+      <input type="text" id="MODdireccion" required><br><br>
+
+      <label for="aforo">Aforo:</label>
+      <input type="number" id="MODaforo" required min="1" max="30"><br><br>
+
+      <label for="precio">Precio:</label>
+      <input type="number" id="MODprecio" required min="15"><br><br>
+
+      <label for="idTipo">Id Tipo:</label>
+      <select id="MODidTipo"required>
+        <option value="1">Vino</option>
+        <option value="2">Cerveza</option>
+        <option value="3">Cóctel</option></select> <br><br>
+
+    <button type="submit">Guardar Cambios</button>
+  </form>
+
+  <!-- Botón para abrir el pop-up -->
+  <!-- <button id="abrirPopup">Abrir pop-up</button> -->
+
+  <!-- Fondo oscuro desenfocado para el modal -->
+  <div id="popup-overlay"></div>
   
-          <label for="direccion">Dirección:</label>
-          <input type="text" id="direccion" required placeholder="Dirección"><br><br>
-  
-          <label for="aforo">Aforo:</label>
-          <input type="number" id="aforo" required min="1" max="30" placeholder="Aforo máximo"><br><br>
-  
-          <label for="precio">Precio:</label>
-          <input type="number" id="precio" required min="15" placeholder="Precio por persona"><br><br>
-  
-          <label for="idTipo">Tipo:</label>
-          <select id="idTipo">
-            <option value="1">Vino</option>
-            <option value="2">Cerveza</option>
-            <option value="3">Cóctel</option>
-          </select><br><br>
-  
-          <button type="submit">Guardar Cambios</button>
-        </form>
-      </div>
+  <!-- Contenedor del pop-up (formulario) -->
+  <div id="popup">
+    <button id="cerrarPopup">&times;</button>
+    <div id="popup-content">
+      <!-- Aquí se incluye el formulario para dar de alta el evento -->
+      <form id="formAltaEvento">
+        <h2>Alta de Evento</h2>
+        <label for="nombre">Nombre:</label>
+        <input type="text" placeholder="Nombre del evento" id="nombre" required><br><br>
+
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" required placeholder="Descripcion del evento"><br><br>
+
+        <label for="fechaInicio">Fecha Inicio:</label>
+        <input type="date" id="fechaInicio" required><br><br>
+
+        <label for="duracion">Duración:</label>
+        <input type="number" id="duracion" required placeholder="Duración">
+
+        <label for="unidadDuracion">Unidad de duración:</label>
+        <select id="unidadDuracion">
+          <option value="HORAS">Horas</option>
+          <option value="DIAS">Días</option>
+        </select><br><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" required placeholder="Dirección"><br><br>
+
+        <label for="aforo">Aforo:</label>
+        <input type="number" id="aforo" required min="1" max="30" placeholder="Aforo máximo"><br><br>
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" required min="15" placeholder="Precio por persona"><br><br>
+
+        <label for="idTipo">Tipo:</label>
+        <select id="idTipo">
+          <option value="1">Vino</option>
+          <option value="2">Cerveza</option>
+          <option value="3">Cóctel</option>
+        </select><br><br>
+
+        <button type="submit">Guardar Cambios</button>
+      </form>
     </div>
-  
-    <script src="scripts/eventos.js"></script>
-    <script>
-   
-    </script>
   </div>
+
+  <script src="scripts/eventos.js"></script>
 </body>
 </html>
