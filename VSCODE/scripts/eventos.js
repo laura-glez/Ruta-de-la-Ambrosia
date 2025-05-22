@@ -248,9 +248,7 @@ const celdaReservas = fila.insertCell();
     
 }
 
-document.getElementById("altaEvento").addEventListener("click", function () {
-  document.getElementById("formAltaEvento").style.display="block";
-});
+
 
 
 document.getElementById("formAltaEvento").addEventListener("submit", async function (event) {
@@ -312,7 +310,7 @@ function mostrarDatosEvento(evento) {
   overlay.style.display = 'block';
 
 
-document.getElementById('cerrarPopup').addEventListener('click', async () => {
+document.getElementById('cerrarPopupDetalles').addEventListener('click', async () => {
 
   popup.classList.remove('show');
 
@@ -321,7 +319,6 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     overlay.style.display = 'none';
   }, 200); // coincide con la duración de la animación
 });
-
 
   //divDetalles.style.display = "block"; // Hacer visible el div de detalles
   divDetalles.innerHTML = `
@@ -337,8 +334,7 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     <p><strong>Precio:</strong> ${evento.precio || "Sin precio definido"}</p>
     <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
     <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
-    `;
-
+    
 
 
     document.getElementById('cerrarPopup').addEventListener('click', async () => {
@@ -352,4 +348,65 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     });
     
     
+
+}
+
+
+    // // Agregar el evento al hacer clic en la imagen de "Ver"
+    // img.addEventListener("click", function () {
+    //   mostrarDatosEvento(e); 
+    // });
+
+document.getElementById("altaEvento").addEventListener("click", function () {
+  mostrarAlta();
+  
+});
+
+function mostrarAlta(){
+    // Elementos
+    const modal = document.getElementById("popupForm");
+    //const abrirBtn = document.getElementById("altaEvento");
+    const cerrarBtn = document.getElementById("cerrarPopupForm");
+    const overlay = document.getElementById('popup-overlay');
+  
+    // Abrir el modal
+    abrirBtn.onclick = function () {
+      modal.style.display = "block";
+    };
+  
+    // Cerrar el modal al hacer clic en la X
+    cerrarBtn.onclick = function () {
+      modal.style.display = "none";
+    };
+  
+    // Cerrar el modal al hacer clic fuera del contenido
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+}
+
+// Función para mostrar el formulario de alta
+function mostrarFormularoAlta() {
+  const popup = document.getElementById('popupForm');
+  
+  document.getElementById("popup-contentForm").style.display="block";
+
+  popup.classList.add('show');
+  popup.style.display = 'block';
+  overlay.style.display = 'block';
+
+
+document.getElementById('cerrarPopupForm').addEventListener('click', async () => {
+
+  popup.classList.remove('show');
+
+  setTimeout(() => {
+    popup.style.display = 'none';
+    overlay.style.display = 'none';
+  }, 200); // coincide con la duración de la animación
+});
+
+
 }
