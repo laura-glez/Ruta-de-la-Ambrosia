@@ -29,43 +29,49 @@
     <h2>Eventos</h2>
     <h2 id="altaEvento"><img id="imagen" src="https://img.icons8.com/?size=100&id=Vm6fWNiGKIpH&format=png&color=000000" alt="icono" width="30" height="30"></h2>
 
-    <form id="formAltaEvento" style="display: none;">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" required><br><br>
+    <div id="popupForm" class="modal">
+        <div id="popup-contentForm"></div>
+        <button id="cerrarPopupForm">&times;</button>
 
-      <label for="descripcion">Descripcion:</label>
-      <input type="text" id="descripcion" required><br><br>
+        <form id="formAltaEvento">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" required><br><br>
 
-      <label for="fechaInicio">Fecha Inicio:</label>
-      <input type="date" id="fechaInicio" required><br><br>
+          <label for="descripcion">Descripcion:</label>
+          <input type="text" id="descripcion" required><br><br>
 
-      <label for="unidadDuracion">Unidad de duracion:</label>
-        <select id="unidadDuracion">
-          <option value="HORAS">Horas</option>
-          <option value="DIAS">Dias</option>
-        </select>
-    
-      <label for="duracion">Duracion:</label>
-      <input type="number" id="duracion" required><br><br>
+          <label for="fechaInicio">Fecha Inicio:</label>
+          <input type="date" id="fechaInicio" required><br><br>
 
-      <label for="direccion">Direccion:</label>
-      <input type="text" id="direccion" required><br><br>
+          <label for="unidadDuracion">Unidad de duracion:</label>
+          <select id="unidadDuracion">
+            <option value="HORAS">Horas</option>
+            <option value="DIAS">Dias</option>
+          </select>
+        
+          <label for="duracion">Duracion:</label>
+          <input type="number" id="duracion" required><br><br>
 
-      <label for="aforo">Aforo:</label>
-      <input type="number" id="aforo" required min="1" max="30"><br><br>
+          <label for="direccion">Direccion:</label>
+          <input type="text" id="direccion" required><br><br>
 
-      <label for="precio">Precio:</label>
-      <input type="number" id="precio" required min="15"><br><br>
+          <label for="aforo">Aforo:</label>
+          <input type="number" id="aforo" required min="1" max="30"><br><br>
 
-      <label for="idTipo">Id Tipo:</label>
-      <select id="idTipo">
-        <option value="1">Vino</option>
-        <option value="2">Cerveza</option>
-        <option value="3">Cóctel</option>
-      </select>
+          <label for="precio">Precio:</label>
+          <input type="number" id="precio" required min="15"><br><br>
 
-      <button type="submit">Guardar Cambios</button>
-</form> <br>
+          <label for="idTipo">Id Tipo:</label>
+          <select id="idTipo">
+            <option value="1">Vino</option>
+            <option value="2">Cerveza</option>
+            <option value="3">Cóctel</option>
+          </select>
+
+          <button type="submit">Guardar Cambios</button>
+        </form> <br>
+      </div>
+    </div>
 
     <table id="tabla">
         <thead>
@@ -138,7 +144,7 @@
 
   <!-- Contenedor del pop-up -->
   <div id="popup">
-    <button id="cerrarPopup">&times;</button>
+    <button id="cerrarPopupDetalles">&times;</button>
     <div id="popup-content">Cargando...</div>
   </div>
 
