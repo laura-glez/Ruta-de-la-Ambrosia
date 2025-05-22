@@ -213,9 +213,10 @@ const celdaReservas = fila.insertCell();
       <p><strong>Usuario:</strong> ${reserva.usuario?.idUsuario || "Sin usuario"}</p>
       <p><strong>Email:</strong> ${reserva.usuario?.email || "Sin usuario"}</p>
       <p><strong>Nombre:</strong> ${reserva.usuario?.nombre || "Sin usuario"}</p>
+      <p><strong>Apellidos:</strong> ${reserva.usuario?.apellidos || "Sin usuario"}</p>
       <p><strong>Precio Venta:</strong> ${reserva.precioVenta ?? "No especificado"}</p>
       <p><strong>Aforo máximo</strong> ${reserva.evento.aforoMaximo ?? "No especificado"}</p>
-      <p><strong>Precio Venta:</strong> ${reserva.evento.precio?? "No especificado"}</p>
+      <p><strong>Precio Evento:</strong> ${reserva.evento.precio?? "No especificado"}</p>
       <p><strong>Observaciones:</strong> ${reserva.observaciones || "Ninguna"}</p>
       <p><strong>Cantidad:</strong> ${reserva.cantidad ?? "No especificada"}</p>
     `;
