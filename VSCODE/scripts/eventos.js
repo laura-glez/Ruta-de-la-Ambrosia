@@ -2,6 +2,7 @@ const tabla = document.getElementById("tabla").querySelector("tbody");
 
 let eventos = [];
 
+
 // Función para obtener todos los eventos
 async function getEventos() {
   try {
@@ -79,6 +80,9 @@ function renderTabla() {
     img2.id = "modificar";
     celdaModificar.appendChild(img2);
     
+
+     
+   
     // Añadir evento para modificar
     img2.addEventListener("click", function () {
       const eventoAmodificar = eventos[index]; // Obtenemos el evento a modificar
@@ -155,7 +159,10 @@ function renderTabla() {
     img3.id = "eliminar";
     celdaEliminar.appendChild(img3);
 
-    const celdaReservas = fila.insertCell();
+    
+   
+
+const celdaReservas = fila.insertCell();
     const img4 = document.createElement("img");
     img4.src = "https://img.icons8.com/?size=100&id=37979&format=png&color=000000";
     img4.alt = "reservas";
@@ -164,9 +171,48 @@ function renderTabla() {
     img4.id = "reservas";
     celdaReservas.appendChild(img4);
     img4.addEventListener("click", function () {
-      mostrarDatosReserva(e); 
+      mostrarDatosReserva(reserva); 
     });
 
+    img4.addEventListener("click", async () => {
+      try {
+        const res = await fetch(`http://localhost:9003/reserva/uno/${e.idEvento}`);
+        const reservaEvento = await res.json();
+        mostrarDatosReserva(reservaEvento);
+      } catch (error) {
+        alert("Error al obtener la reserva: " + error.message);
+      }
+    });
+    
+ function mostrarDatosReserva(reserva) {
+      const popup = document.getElementById('popup');
+      const overlay = document.getElementById('popup-overlay');
+      const divDetallesReserva = document.getElementById('popup-content');
+    
+      popup.classList.add('show');
+      popup.style.display = 'block';
+      overlay.style.display = 'block';
+    
+      document.getElementById('cerrarPopup').addEventListener('click', () => {
+        popup.classList.remove('show');
+        setTimeout(() => {
+          popup.style.display = 'none';
+          overlay.style.display = 'none';
+        }, 200);
+      });
+    
+      divDetallesReserva.style.display = "block";
+      divDetallesReserva.innerHTML = `
+      <h2>Detalles de la Reserva</h2>
+      <p><strong>ID Reserva:</strong> ${reserva.idReserva || "N/A"}</p>
+      <p><strong>Evento:</strong> ${reserva.evento?.idEvento || "Sin evento"}</p>
+      <p><strong>Usuario:</strong> ${reserva.usuario?.idUsuario || "Sin usuario"}</p>
+      <p><strong>Precio Venta:</strong> ${reserva.precioVenta ?? "No especificado"}</p>
+      <p><strong>Observaciones:</strong> ${reserva.observaciones || "Ninguna"}</p>
+      <p><strong>Cantidad:</strong> ${reserva.cantidad ?? "No especificada"}</p>
+    `;
+  
+    }
     // Añadir evento de eliminación con confirmación
     img3.addEventListener("click", async function () {
       const confirmDelete = confirm(`¿Estás seguro de eliminar el evento: ${e.nombre}?`);
@@ -221,7 +267,7 @@ document.getElementById("formAltaEvento").addEventListener("submit", async funct
   };
 
   try {
-    const response = await fetch('http://localhost:9003/evento/alta', {
+    const response = await fetch('localhost:9003/evento/alta', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -285,16 +331,7 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     `;
 
 
-    function mostrarDatosReserva(evento) {
-      const popup = document.getElementById('popup');
-      const overlay = document.getElementById('popup-overlay');
-      const divDetallesReserva = document.getElementById('popup-content');
-    
-      popup.classList.add('show');
-      popup.style.display = 'block';
-      overlay.style.display = 'block';
-    
-    
+
     document.getElementById('cerrarPopup').addEventListener('click', async () => {
     
       popup.classList.remove('show');
@@ -306,17 +343,4 @@ document.getElementById('cerrarPopup').addEventListener('click', async () => {
     });
     
     
-      //divDetalles.style.display = "block"; // Hacer visible el div de detalles
-      divDetallesReserva.innerHTML = `
-        <h2>Detalles del Evento: </h2>
-        <p><strong>IdEvento:</strong> ${reserva.idEvento}</p>
-        <p><strong>IdUsario:</strong> ${reserva.idUsuario}</p>
-        <p><strong>IdReserva:</strong> ${reserva.idReserva}</p>
-        <p><strong>PrecioVenta:</strong> ${reserva.precioVenta}</p>
-        <p><strong>Observaciones:</strong> ${reserva.observaciones}</p>
-        <p><strong>Cantidad:</strong> ${reserva.cantidad} </p>
-        `;
-
-
-    
-}}
+}

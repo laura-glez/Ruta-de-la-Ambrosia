@@ -31,7 +31,7 @@ public class ReservaRestController {
 	
 	@GetMapping("/nombre/{cadena}")
 	public List<Reserva> subcadena(@PathVariable String cadena){
-		return rdao.porNombreContain(cadena);
+		return null;
 	}
 
 	@GetMapping("/uno/{idReserva}")
