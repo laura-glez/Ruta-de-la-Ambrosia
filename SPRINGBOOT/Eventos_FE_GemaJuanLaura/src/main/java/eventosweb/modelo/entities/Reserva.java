@@ -42,6 +42,10 @@ public class Reserva implements Serializable{
 
 	}
 
+	public Reserva() {
+		super();
+	}
+
 	public Reserva(Integer idReserva, Usuario usuario, Evento evento, Double precioVenta, String observaciones,
 			Integer cantidad) {
 		super();

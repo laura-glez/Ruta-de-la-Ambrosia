@@ -2,6 +2,7 @@ const tabla = document.getElementById("tabla").querySelector("tbody");
 
 let eventos = [];
 
+
 // Función para obtener todos los eventos
 async function getEventos() {
   try {
@@ -61,7 +62,10 @@ function renderTabla() {
     img.width = 24;
     img.height = 24;
     img.id = "ver";
+    img.classList.add("img-hover");
     celdaVer.appendChild(img);
+
+    
 
     // Agregar el evento al hacer clic en la imagen de "Ver"
     img.addEventListener("click", function () {
@@ -75,8 +79,12 @@ function renderTabla() {
     img2.width = 24;
     img2.height = 24;
     img2.id = "modificar";
+    img2.classList.add("img2-hover");
     celdaModificar.appendChild(img2);
     
+
+     
+   
     // Añadir evento para modificar
     img2.addEventListener("click", function () {
       const eventoAmodificar = eventos[index]; // Obtenemos el evento a modificar
@@ -151,8 +159,69 @@ function renderTabla() {
     img3.width = 24;
     img3.height = 24;
     img3.id = "eliminar";
+    img3.classList.add("img3-hover");
     celdaEliminar.appendChild(img3);
 
+    
+   
+
+const celdaReservas = fila.insertCell();
+    const img4 = document.createElement("img");
+    img4.src = "https://img.icons8.com/?size=100&id=37979&format=png&color=000000";
+    img4.alt = "reservas";
+    img4.width = 30;
+    img4.height = 30;
+    img4.id = "reservas";
+    celdaReservas.appendChild(img4);
+    img4.classList.add("img4-hover");
+    img4.addEventListener("click", function () {
+      mostrarDatosReserva(reserva); 
+    });
+
+    img4.addEventListener("click", async () => {
+      try {
+        const res = await fetch(`http://localhost:9003/reserva/uno/${e.idEvento}`);
+        const reservaEvento = await res.json();
+        mostrarDatosReserva(reservaEvento);
+      } catch (error) {
+        alert("Error al obtener la reserva: " + error.message);
+      }
+    });
+    
+ function mostrarDatosReserva(reserva) {
+      const popup = document.getElementById('popup');
+      const overlay = document.getElementById('popup-overlay');
+      const divDetallesReserva = document.getElementById('popup-content');
+    
+      popup.classList.add('show');
+      popup.style.display = 'block';
+      overlay.style.display = 'block';
+    
+      document.getElementById('cerrarPopup').addEventListener('click', () => {
+        popup.classList.remove('show');
+        setTimeout(() => {
+          popup.style.display = 'none';
+          overlay.style.display = 'none';
+        }, 200);
+      });
+    
+      divDetallesReserva.style.display = "block";
+      divDetallesReserva.innerHTML = `
+      <h2>Detalles de la Reserva</h2>
+      <p><strong>ID Reserva:</strong> ${reserva.idReserva || "N/A"}</p>
+      <p><strong>Evento:</strong> ${reserva.evento?.idEvento || "Sin evento"}</p>
+      <p><strong>Usuario:</strong> ${reserva.usuario?.idUsuario || "Sin usuario"}</p>
+      <p><strong>Email:</strong> ${reserva.usuario?.email || "Sin usuario"}</p>
+      <p><strong>Nombre:</strong> ${reserva.usuario?.nombre || "Sin usuario"}</p>
+      <p><strong>Apellidos:</strong> ${reserva.usuario?.apellidos || "Sin usuario"}</p>
+      <p><strong>Precio Venta:</strong> ${reserva.precioVenta ?? "No especificado"}</p>
+      <p><strong>Aforo máximo</strong> ${reserva.evento.aforoMaximo ?? "No especificado"}</p>
+      <p><strong>Precio Evento:</strong> ${reserva.evento.precio?? "No especificado"}</p>
+      <p><strong>Observaciones:</strong> ${reserva.observaciones || "Ninguna"}</p>
+      <p><strong>Cantidad:</strong> ${reserva.cantidad ?? "No especificada"}</p>
+    `;
+  
+    }
     // Añadir evento de eliminación con confirmación
     img3.addEventListener("click", async function () {
       const confirmDelete = confirm(`¿Estás seguro de eliminar el evento: ${e.nombre}?`);
@@ -175,6 +244,8 @@ function renderTabla() {
         }}});
     
     });
+
+    
 }
 
 
@@ -203,7 +274,7 @@ document.getElementById("formAltaEvento").addEventListener("submit", async funct
   };
 
   try {
-    const response = await fetch('http://localhost:9003/evento/alta', {
+    const response = await fetch('localhost:9003/evento/alta', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -263,7 +334,21 @@ document.getElementById('cerrarPopupDetalles').addEventListener('click', async (
     <p><strong>Precio:</strong> ${evento.precio || "Sin precio definido"}</p>
     <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
     <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
-    `;
+    
+
+
+    document.getElementById('cerrarPopup').addEventListener('click', async () => {
+    
+      popup.classList.remove('show');
+    
+      setTimeout(() => {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+      }, 200); // coincide con la duración de la animación
+    });
+    
+    
+
 }
 
 
@@ -322,5 +407,6 @@ document.getElementById('cerrarPopupForm').addEventListener('click', async () =>
     overlay.style.display = 'none';
   }, 200); // coincide con la duración de la animación
 });
+
 
 }
