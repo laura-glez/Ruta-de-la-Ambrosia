@@ -180,8 +180,8 @@ CHECK(CANTIDAD BETWEEN 1 AND 10)
 
 INSERT INTO RESERVAS (ID_RESERVA, ID_USUARIO, ID_EVENTO, PRECIO_VENTA, OBSERVACIONES, CANTIDAD)
 VALUES 
-(1, 2, 1, 20.5, 'Reserva para evento de vino', 2),  
-(2, 2, 2, 15.0, 'Reserva para evento de cerveza', 1),  
-(3, 2, 3, 30.0, 'Reserva para evento de cócteles', 3);
+(1, 2, 1, 20.5, 'Reserva para cata vinos Bodega los reyes', 2),  
+(2, 2, 2, 15.0, 'Reserva para cata de vinos y quesos italianos premium', 1),  
+(3, 2, 3, 30.0, 'Reserva para cata de vinos con un experto enólogo', 3);
 
 
