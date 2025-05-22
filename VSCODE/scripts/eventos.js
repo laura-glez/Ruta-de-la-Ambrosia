@@ -69,7 +69,6 @@ function renderTabla() {
     });
  
     const celdaModificar = fila.insertCell();
-    mostrarModificarEvento();
     const img2 = document.createElement("img");
     img2.src = "https://img.icons8.com/?size=100&id=8192&format=png&color=555758";
     img2.alt = "Modificar";
@@ -80,7 +79,7 @@ function renderTabla() {
     
     // Añadir evento para modificar
     img2.addEventListener("click", function () {
-      
+      mostrarModificarEvento();
       const eventoAmodificar = eventos[index]; // Obtenemos el evento a modificar
       document.getElementById("formModificarEvento").style.display = "block"; // Mostrar el formulario
       document.getElementById("formModificarEvento").dataset.index = index; // Guardamos el índice del evento
@@ -243,7 +242,7 @@ function mostrarDatosEvento(evento) {
   popup.style.display = 'block';
   overlay.style.display = 'block';
 
-  //divDetalles.style.display = "block"; // Hacer visible el div de detalles
+  divDetalles.style.display = "block"; // Hacer visible el div de detalles
   divDetalles.innerHTML = `
     <h2>Detalles del Evento: ${evento.nombre}</h2>
     <p><strong>ID:</strong> ${evento.idEvento}</p>
@@ -267,6 +266,7 @@ function mostarAlta(){
    // Asignar event listener para abrir el modal con el formulario
         const popup = document.getElementById('popup');
         const overlay = document.getElementById('popup-overlay');
+
         popup.classList.add('show');
         popup.style.display = 'block';
         overlay.style.display = 'block';
@@ -291,11 +291,16 @@ function mostrarModificarEvento(){
       document.getElementById('cerrarPopup').addEventListener('click', () => {
         const popup = document.getElementById('popup');
         const overlay = document.getElementById('popup-overlay');
+        const divDetalles = document.getElementById('popup-content');
+
         popup.classList.remove('show');
         setTimeout(() => {
           popup.style.display = 'none';
           overlay.style.display = 'none';
+          divDetalles.innerHTML = "";
+
         }, 200);
+        
       });
     }
   
