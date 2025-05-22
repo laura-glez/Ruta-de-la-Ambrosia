@@ -62,6 +62,7 @@ function renderTabla() {
     img.width = 24;
     img.height = 24;
     img.id = "ver";
+    img.classList.add("img-hover");
     celdaVer.appendChild(img);
 
     
@@ -78,6 +79,7 @@ function renderTabla() {
     img2.width = 24;
     img2.height = 24;
     img2.id = "modificar";
+    img2.classList.add("img2-hover");
     celdaModificar.appendChild(img2);
     
 
@@ -157,6 +159,7 @@ function renderTabla() {
     img3.width = 24;
     img3.height = 24;
     img3.id = "eliminar";
+    img3.classList.add("img3-hover");
     celdaEliminar.appendChild(img3);
 
     
@@ -170,6 +173,7 @@ const celdaReservas = fila.insertCell();
     img4.height = 30;
     img4.id = "reservas";
     celdaReservas.appendChild(img4);
+    img4.classList.add("img4-hover");
     img4.addEventListener("click", function () {
       mostrarDatosReserva(reserva); 
     });
@@ -207,7 +211,11 @@ const celdaReservas = fila.insertCell();
       <p><strong>ID Reserva:</strong> ${reserva.idReserva || "N/A"}</p>
       <p><strong>Evento:</strong> ${reserva.evento?.idEvento || "Sin evento"}</p>
       <p><strong>Usuario:</strong> ${reserva.usuario?.idUsuario || "Sin usuario"}</p>
+      <p><strong>Email:</strong> ${reserva.usuario?.email || "Sin usuario"}</p>
+      <p><strong>Nombre:</strong> ${reserva.usuario?.nombre || "Sin usuario"}</p>
       <p><strong>Precio Venta:</strong> ${reserva.precioVenta ?? "No especificado"}</p>
+      <p><strong>Aforo máximo</strong> ${reserva.evento.aforoMaximo ?? "No especificado"}</p>
+      <p><strong>Precio Venta:</strong> ${reserva.evento.precio?? "No especificado"}</p>
       <p><strong>Observaciones:</strong> ${reserva.observaciones || "Ninguna"}</p>
       <p><strong>Cantidad:</strong> ${reserva.cantidad ?? "No especificada"}</p>
     `;
