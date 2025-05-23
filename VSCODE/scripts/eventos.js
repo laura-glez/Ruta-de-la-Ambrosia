@@ -263,13 +263,23 @@ function mostrarDatosEvento(evento) {
 }
 
 function mostarAlta(){
+    /*const divDetalles = document.getElementById('popup-content');
+
+  popup.classList.add('show');
+  popup.style.display = 'block';
+  overlay.style.display = 'block';
+
+  divDetalles.style.display = "block"; // Hacer visible el div de detalles*/ 
+
    // Asignar event listener para abrir el modal con el formulario
         const popup = document.getElementById('popup');
         const overlay = document.getElementById('popup-overlay');
+        const form = document.getElementById('popup-Altacontent');
 
         popup.classList.add('show');
         popup.style.display = 'block';
         overlay.style.display = 'block';
+        form.style.display ='block';
     
       // Event listener para cerrar el modal
       cerrarPopUp();
@@ -291,13 +301,12 @@ function mostrarModificarEvento(){
       document.getElementById('cerrarPopup').addEventListener('click', () => {
         const popup = document.getElementById('popup');
         const overlay = document.getElementById('popup-overlay');
-        const divDetalles = document.getElementById('popup-content');
 
         popup.classList.remove('show');
         setTimeout(() => {
           popup.style.display = 'none';
           overlay.style.display = 'none';
-          divDetalles.innerHTML = "";
+          
 
         }, 200);
         
