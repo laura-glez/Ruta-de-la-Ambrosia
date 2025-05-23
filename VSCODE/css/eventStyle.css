@@ -36,6 +36,9 @@ h1, h2 {
 
 
  /*FORMULARIOS*/ 
+ #popup-Modificarcontent, #popup-Altacontent{
+  display: none;
+ }
 form {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
