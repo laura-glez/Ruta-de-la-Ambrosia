@@ -5,19 +5,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import eventosweb.modelo.dto.ReservaDto;
 import eventosweb.modelo.entities.Reserva;
 import eventosweb.modelo.repository.ReservaRepository;
 @Service
 public class ReservaDaoImplDataJpa implements ReservaDao{
-	private final EventoDaoImplDataJpa eventoDaoImplDataJpa;
-    private final UsuarioDaoImplDataJpa usuarioDaoImplDataJpa;
+	/*private final EventoDaoImplDataJpa eventoDaoImplDataJpa;
+    private final UsuarioDaoImplDataJpa usuarioDaoImplDataJpa;*/
 	@Autowired
 	private ReservaRepository rrepo;
 
-	public ReservaDaoImplDataJpa(EventoDaoImplDataJpa eventoDaoImplDataJpa, UsuarioDaoImplDataJpa usuarioDaoImplDataJpa) {
+	/*public ReservaDaoImplDataJpa(EventoDaoImplDataJpa eventoDaoImplDataJpa, UsuarioDaoImplDataJpa usuarioDaoImplDataJpa) {
 	    this.eventoDaoImplDataJpa = eventoDaoImplDataJpa;
 	    this.usuarioDaoImplDataJpa = usuarioDaoImplDataJpa;
-	}
+	}*/
 	 
 	@Override
 	public List<Reserva> todos() {
@@ -83,6 +84,22 @@ public class ReservaDaoImplDataJpa implements ReservaDao{
 		
 		return filas;
 	}
-   
 
+	@Override
+	public List<Reserva> buscarPorEvento(int idEvento) {
+		return rrepo.findByEvento_IdEvento(idEvento);
+	}
+
+	@Override
+	public List<Reserva> buscarPorIdUsuario(int idUsuario) {
+		// TODO Auto-generated method stub
+		return rrepo.findByUsuario_IdUsuario(idUsuario);
+	}
+
+	@Override
+	public List<Reserva> buscarPorEmail(String email) {
+		// TODO Auto-generated method stub
+		return rrepo.findByUsuario_Email(email);
+	}
+   
 }

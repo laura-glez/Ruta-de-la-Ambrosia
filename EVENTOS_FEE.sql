@@ -33,8 +33,9 @@ foreign key(ID_PERFIL) REFERENCES PERFILES(ID_PERFIL)
 
 insert into usuarios values
 (1, 'ramon@fp.com', '12345', 'Ramon', 'Santaolaya Lopez',1,  '2024-03-15', 1),
-(2, 'eva@fp.com', '12345', 'Eva', 'Goma Papel',1,  '2025-01-15', 2);
-
+(2, 'eva@fp.com', '12345', 'Eva', 'Goma Papel',1,  '2025-01-15', 2),
+(3, 'carlos@fp.com', '12345', 'Carlos', 'Panadero Estupendo',1,  '2025-03-15', 2),
+(4, 'sara@fp.com', '12345', 'Sara', 'Madera',1,  '2025-04-10', 2);
 
 
 CREATE TABLE EVENTOS
