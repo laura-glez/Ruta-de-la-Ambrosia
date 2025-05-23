@@ -241,7 +241,7 @@ const celdaReservas = fila.insertCell();
     
       divDetallesReserva.innerHTML = `
         <h2>Detalles de la Reserva</h2>
-        <table border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
+        <table id="tablaReservas" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
           <thead>
             <tr>
               <th>ID Reserva</th>
