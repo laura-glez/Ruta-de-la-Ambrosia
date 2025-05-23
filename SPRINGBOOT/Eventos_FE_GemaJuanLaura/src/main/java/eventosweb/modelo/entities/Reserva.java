@@ -37,9 +37,9 @@ public class Reserva implements Serializable{
 	private String observaciones;
 	private Integer cantidad;
 	
-	private void Reservas() {
-		// TODO Auto-generated method stub
 
+	public Reserva() {
+		
 	}
 
 	public Reserva(Integer idReserva, Usuario usuario, Evento evento, Double precioVenta, String observaciones,
@@ -121,7 +121,4 @@ public class Reserva implements Serializable{
 		Reserva other = (Reserva) obj;
 		return Objects.equals(idReserva, other.idReserva);
 	}
-	
-	
-
 }

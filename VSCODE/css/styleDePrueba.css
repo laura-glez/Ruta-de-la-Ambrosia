@@ -121,6 +121,7 @@ header nav a {
   text-align: center;
   color: #333;
   background-attachment: fixed;
+  
 }
 
 
@@ -137,7 +138,7 @@ header nav a {
   z-index: 1;
   max-width: 450px;
   padding: 2rem;
-  transform: translateY(105%);
+  transform: translateY(135%);
   background-color:  #F9F4EF;
   border-radius: 10px;
 }
@@ -192,12 +193,12 @@ header nav a {
   transition: background-color 0.3s, color 0.3s;
   border-radius: 5px;
   width: 180px;
-  height: 50px;
+  height: 30px;
 }
 
 
 #reserva::after{
-  content: "y contigo";
+  content: "y Brindemos";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -223,9 +224,9 @@ header nav a {
 
 
 .Espacio-Contenedores{
-  padding: 135px 0px;
   margin: 0 auto;
   text-align: center;
+  margin-top: 140px;
 }
 
 
@@ -593,36 +594,6 @@ footer {
 }
 
 
-.card-reservas:nth-child(1):before {
-  background-image: url(https://vinoselcielo.com/cdn/shop/articles/todo-lo-que-tienes-que-saber-acerca-de-la-cata-de-vinos-173211_1024x.jpg?v=1727293932);
-}
-.card-reservas:nth-child(2):before {
-  background-image: url(https://www.ikea.com/es/es/images/products/mjod-jarra-cerveza-vidrio-incoloro__0896000_pe609493_s5.jpg);
-}
-.card-reservas:nth-child(3):before {
-  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
-}
-.card-reservas:nth-child(4):before {
-  background-image: url(https://vinoselcielo.com/cdn/shop/articles/todo-lo-que-tienes-que-saber-acerca-de-la-cata-de-vinos-173211_1024x.jpg?v=1727293932);
-}
-.card-reservas:nth-child(5):before {
-  background-image: url(https://www.ikea.com/es/es/images/products/mjod-jarra-cerveza-vidrio-incoloro__0896000_pe609493_s5.jpg);
-}
-.card-reservas:nth-child(6):before {
-  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
-}
-.card-reservas:nth-child(7):before {
-  background-image: url(https://vinoselcielo.com/cdn/shop/articles/todo-lo-que-tienes-que-saber-acerca-de-la-cata-de-vinos-173211_1024x.jpg?v=1727293932);
-}
-.card-reservas:nth-child(8):before {
-  background-image: url(https://www.ikea.com/es/es/images/products/mjod-jarra-cerveza-vidrio-incoloro__0896000_pe609493_s5.jpg);
-}
-.card-reservas:nth-child(9):before {
-  background-image: url(https://cdn0.bodas.net/article/7631/3_2/960/jpg/1367-cocteles-apertura.jpeg);
-}
-.card-reservas:nth-child(10):before {
-  background-image: url(https://www.clarin.com/2023/06/08/YRSz8s035_2000x1500__1.jpg);
-}
 
 @media (hover: hover) and (min-width: 600px) {
   .card-reservas:after {
@@ -650,6 +621,232 @@ footer {
       transform: translateY(0);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+  padding: 16px; 
+  display: grid;
+  gap: 16px; 
+  grid-template-columns: repeat(5, 270px);
+  grid-template-rows: repeat(2, auto);
+  justify-content: center;
+}
+
+
+
+.flat {
+  box-shadow: none !important;
+}
+
+.card {
+  overflow: hidden;
+  color: lightgray; 
+  font-size: 18px;
+  height: 245px; 
+  border: 1px solid darkgray; 
+  transition: all 1.3s cubic-bezier(1, 0, 0, 1);
+  cursor: pointer;
+}
+
+#A1{
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#A2{
+  background-image: url(https://www.vinopack.es/wp-content/uploads/2016/05/vp-vi%C3%B1edos-penedes.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#A3{
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#A4{
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#A5{
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#A6{
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#A7{
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#A8{
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#A9{
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#A10{
+  background-image: url(https://www.bodegasgongora.com/wp-content/uploads/2023/08/color-del-vino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+
+.card:hover {
+  box-shadow: 0 1px 26px lightgray; 
+}
+
+.card-title {
+  text-align: center;
+
+  font-size: 40px;
+  color: white;
+}
+
+
+.card-details {
+  display: none;
+}
+
+.block {
+  height: 32px; 
+  margin-bottom: 16px;
+}
+
+
+.card-full {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 60vw !important;
+  height: 70vh !important;
+  font-size: 32px;
+  box-shadow: 0 1px 26px lightgray; 
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s ease;
+  z-index: 999;
+}
+
+
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 54px;
+  color: whitesmoke; 
+  cursor: pointer;
+  z-index: 1000;
+  transition: color 0.5s ease; 
+}
+
+.close-button:hover {
+  color: red; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .icono-usuario a {
@@ -680,6 +877,16 @@ opacity: 0;
   position: relative;
   top: 30px;
 }
+
+
+
+
+
+
+
+
+
+
 
 /* Estilo para el overlay */
 #popup-overlay {

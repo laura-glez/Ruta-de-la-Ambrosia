@@ -1,4 +1,5 @@
 
+
 * {
   margin: 0;
   padding: 0;
@@ -321,7 +322,7 @@ opacity: 0;
 }
 
 /* Ventana del pop-up */
-#popup {
+#popup, .modal {
   display: none;
   position: fixed;
   top: 50%; left: 50%;
@@ -361,7 +362,7 @@ opacity: 0;
 }
 
 /* Botón de cierre (X) */
-#cerrarPopup {
+#cerrarPopupDetalles, #cerrarPopupForm {
   position: absolute;
   top: 0.1em; right: 0.5em;
   background: transparent;
@@ -384,3 +385,54 @@ opacity: 0;
   }
 }
 
+.img4-hover {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Aumenta el tamaño solo de la imagen con esta clase al pasar el ratón */
+.img4-hover:hover {
+  transform: scale(1.2); /* Aumenta el tamaño al pasar el ratón */
+}
+
+.img3-hover {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Aumenta el tamaño solo de la imagen con esta clase al pasar el ratón */
+.img3-hover:hover {
+  transform: scale(1.2); /* Aumenta el tamaño al pasar el ratón */
+}
+
+.img2-hover {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Aumenta el tamaño solo de la imagen con esta clase al pasar el ratón */
+.img2-hover:hover {
+  transform: scale(1.2); /* Aumenta el tamaño al pasar el ratón */
+}
+
+.img-hover {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Aumenta el tamaño solo de la imagen con esta clase al pasar el ratón */
+.img-hover:hover {
+  transform: scale(1.2); /* Aumenta el tamaño al pasar el ratón */
+}
+
+#popup-contentForm{
+  margin-top: 20px;
+  font-family: sans-serif;
+  padding: 1em;
+  p{
+    padding:0.5em;
+  }
+  h2{
+    text-shadow: 4px 2px 14px rgba(0,0,0,0.6);
+  }
+}
