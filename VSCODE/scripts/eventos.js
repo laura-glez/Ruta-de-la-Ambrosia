@@ -87,6 +87,7 @@ function renderTabla() {
    
     // Añadir evento para modificar
     img2.addEventListener("click", function () {
+      mostrarModificarEvento();
       const eventoAmodificar = eventos[index]; // Obtenemos el evento a modificar
       document.getElementById("formModificarEvento").style.display = "block"; // Mostrar el formulario
       document.getElementById("formModificarEvento").dataset.index = index; // Guardamos el índice del evento
@@ -107,7 +108,7 @@ function renderTabla() {
     // Formulario de modificación (submit)
     document.getElementById("formModificarEvento").addEventListener("submit", function (e) {
       e.preventDefault();
-    
+      
       const idEvento = this.dataset.index; // Usamos el índice del evento en el array
       const eventoModificado = {
         idEvento: eventos[idEvento].idEvento,  // Asegúrate de usar 'idEvento' como nombre del campo
@@ -249,6 +250,11 @@ const celdaReservas = fila.insertCell();
 }
 
 
+document.getElementById("altaEvento").addEventListener("click", function () {
+  mostarAlta();
+  //document.getElementById("formAltaEvento").style.display="block";
+});
+
 
 
 document.getElementById("formAltaEvento").addEventListener("submit", async function (event) {
@@ -310,6 +316,7 @@ function mostrarDatosEvento(evento) {
   overlay.style.display = 'block';
 
 
+
 document.getElementById('cerrarPopupDetalles').addEventListener('click', async () => {
 
   popup.classList.remove('show');
@@ -321,6 +328,7 @@ document.getElementById('cerrarPopupDetalles').addEventListener('click', async (
 });
 
   //divDetalles.style.display = "block"; // Hacer visible el div de detalles
+
   divDetalles.innerHTML = `
     <h2>Detalles del Evento: ${evento.nombre}</h2>
     <p><strong>ID:</strong> ${evento.idEvento}</p>
@@ -333,79 +341,87 @@ document.getElementById('cerrarPopupDetalles').addEventListener('click', async (
     <p><strong>Destacado:</strong> ${evento.destacado}</p>
     <p><strong>Precio:</strong> ${evento.precio || "Sin precio definido"}</p>
     <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
-    <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p> `;
+    <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>
+    `;
 
+    document.getElementById('cerrarPopup').addEventListener('click', () => {
+      const popup = document.getElementById('popup');
+      const overlay = document.getElementById('popup-overlay');
 
-    document.getElementById('cerrarPopup').addEventListener('click', async () => {
-    
       popup.classList.remove('show');
-    
       setTimeout(() => {
         popup.style.display = 'none';
         overlay.style.display = 'none';
-      }, 200); // coincide con la duración de la animación
+        divDetalles.style.display = 'none';
+
+      }, 200);
+      
     });
+
+}
+
+function mostarAlta(){
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('popup-overlay');
+        const form = document.getElementById('popup-Altacontent');
+
+        popup.classList.add('show');
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+        form.style.display ='block';
     
+      // Event listener para cerrar el modal
+      document.getElementById('cerrarPopup').addEventListener('click', () => {
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('popup-overlay');
+
+        popup.classList.remove('show');
+        setTimeout(() => {
+          popup.style.display = 'none';
+          overlay.style.display = 'none';
+          
+
+        }, 200)
+    });}
+
+function mostrarModificarEvento(){
+  //Asignar event listener para abrir el modal con el formulario
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('popup-overlay');
+        const form = document.getElementById('popup-Modificarcontent');
+
+        popup.classList.add('show');
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+        form.style.display = 'block';
     
+      // Event listener para cerrar el modal
+      document.getElementById('cerrarPopup').addEventListener('click', () => {
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('popup-overlay');
 
-}
+        popup.classList.remove('show');
+        setTimeout(() => {
+          popup.style.display = 'none';
+          overlay.style.display = 'none';
+          
 
+        }, 200)
+});}
 
-    // // Agregar el evento al hacer clic en la imagen de "Ver"
-    // img.addEventListener("click", function () {
-    //   mostrarDatosEvento(e); 
-    // });
+    function cerrarPopUp(){
+      document.getElementById('cerrarPopup').addEventListener('click', () => {
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('popup-overlay');
 
-document.getElementById("altaEvento").addEventListener("click", function () {
-  mostrarAlta();
-  
-});
+        popup.classList.remove('show');
+        setTimeout(() => {
+          popup.style.display = 'none';
+          overlay.style.display = 'none';
+          
 
-function mostrarAlta(){
-    // Elementos
-    const modal = document.getElementById("popupForm");
-    //const abrirBtn = document.getElementById("altaEvento");
-    const cerrarBtn = document.getElementById("cerrarPopupForm");
-    const overlay = document.getElementById('popup-overlay');
-  
-    // Abrir el modal
-    abrirBtn.onclick = function () {
-      modal.style.display = "block";
-    };
-  
-    // Cerrar el modal al hacer clic en la X
-    cerrarBtn.onclick = function () {
-      modal.style.display = "none";
-    };
-  
-    // Cerrar el modal al hacer clic fuera del contenido
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-}
+        }, 200);
+        
+      });
+    } 
 
-// Función para mostrar el formulario de alta
-function mostrarFormularoAlta() {
-  const popup = document.getElementById('popupForm');
-  
-  document.getElementById("popup-contentForm").style.display="block";
-
-  popup.classList.add('show');
-  popup.style.display = 'block';
-  overlay.style.display = 'block';
-
-
-document.getElementById('cerrarPopupForm').addEventListener('click', async () => {
-
-  popup.classList.remove('show');
-
-  setTimeout(() => {
-    popup.style.display = 'none';
-    overlay.style.display = 'none';
-  }, 200); // coincide con la duración de la animación
-});
-
-
-}

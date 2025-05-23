@@ -32,44 +32,75 @@ h1, h2 {
 #imagen{
   float: left;
   position: relative;
-  left: 100px;
-  bottom:47px;}
+  left: 152px;
+  bottom:48px;}
 
-
+/**aadfasdfdsa/
  /*FORMULARIOS*/ 
+ #popup-Modificarcontent, #popup-Altacontent{
+  display: none;
+ }
 form {
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
+  gap: 10px; /* Espacio entre los campos */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
+.bloque {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.formulario .campo:last-child {
+  grid-column: span 2; /* Hace que el último campo ocupe ambas columnas */
+  text-align: center; /* Centra el contenido del último campo */
+  justify-content: center;
+  justify-items: center;
+}
 form label {
   display: block;
   margin-bottom: 5px;
-  color: #53646f;
+  color: #2e2e2e;
   font-weight: 400;
+  display: block;
+  
 }
 
-form input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+form select, form input{
+  align-content: start;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 14px;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 form button {
-  background-color: #66417e;
-  color: white;
+  align-content: end;
+  background-color: #750f3b;
+  color: #f4f6f8;
   padding: 10px 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 3px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+form select {
+  color: #2e2e2e;
+  padding: 10px 20px;
+  border: 3px thin #53646f;
+  
+ 
+  font-weight: 500;
+}
+
 form button:hover {
-  background-color:#66417e;
+  background-color:#53646f;
 }
 
 /*TABLA DE EVENTOS*/
@@ -137,14 +168,9 @@ form button:hover {
 .modificar.titulo {
   margin-top: 40px;
 }
-/*@@ -337,4 +329,14 @@ opacity: 0;*/
   p{
     padding:0.5em;
   }
-  
-
-
-
 .modificar {
   visibility: hidden;
 }
@@ -342,7 +368,7 @@ opacity: 0;
   background: transparent;
   border: none;
   font-size: 3rem;
-  color: #2e2e2e;
+   color: #2e2e2e;
   cursor: pointer;
 }
 
@@ -410,4 +436,3 @@ opacity: 0;
     text-shadow: 4px 2px 14px rgba(0,0,0,0.6);
   }
 }
-
