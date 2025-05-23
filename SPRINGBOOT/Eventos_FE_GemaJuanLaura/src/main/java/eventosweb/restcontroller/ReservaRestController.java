@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import eventosweb.modelo.dao.ReservaDao;
+import eventosweb.modelo.dto.ReservaDto;
 import eventosweb.modelo.entities.Reserva;
 
 @RestController
@@ -54,6 +55,19 @@ public class ReservaRestController {
 		 return rdao.modificar(reserva);
 		  
 		}
+	 
+	 @GetMapping ("/evento/{idEvento}")
+	 public List <ReservaDto> porEvento(@PathVariable int idEvento){
+		return ReservaDto.converList(rdao.buscarPorEvento(idEvento));
+		 
+	 }
+	 
+	 @GetMapping("/usuarioId/{idUsuario}")
+	 public List <ReservaDto> porUsuario(@PathVariable int idUsuario){
+		return ReservaDto.converList(rdao.buscarPorIdUsuario(idUsuario));
+		 
+	 }
+	 
 	    
 
 }

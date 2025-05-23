@@ -333,8 +333,7 @@ document.getElementById('cerrarPopupDetalles').addEventListener('click', async (
     <p><strong>Destacado:</strong> ${evento.destacado}</p>
     <p><strong>Precio:</strong> ${evento.precio || "Sin precio definido"}</p>
     <p><strong>Tipo:</strong> ${evento.tipo?.nombre || "Sin tipo definido"}</p>
-    <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p>`;
-    
+    <p><strong>Fecha Alta:</strong> ${evento.fechaAlta|| "Sin fecha de alta definida"}</p> `;
 
 
     document.getElementById('cerrarPopup').addEventListener('click', async () => {

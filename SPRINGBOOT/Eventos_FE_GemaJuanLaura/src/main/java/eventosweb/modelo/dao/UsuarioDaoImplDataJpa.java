@@ -1,22 +1,26 @@
 package eventosweb.modelo.dao;
 
 import java.util.List;
-
+import eventosweb.restcontroller.UsuarioRestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import eventosweb.modelo.entities.Usuario;
 import eventosweb.modelo.repository.ReservaRepository;
 import eventosweb.modelo.repository.UsuarioRepository;
+
 @Service
 public class UsuarioDaoImplDataJpa implements UsuarioDao{
+
+    private final UsuarioRestController usuarioRestController;
 	
 	private final PerfilDaoImplDataJpa perfilDaoImplDataJpa;
 	@Autowired
 	private UsuarioRepository urepo;
 
-	UsuarioDaoImplDataJpa(PerfilDaoImplDataJpa perfilDaoImplDataJpa){
-		this.perfilDaoImplDataJpa = perfilDaoImplDataJpa;}
+	UsuarioDaoImplDataJpa(PerfilDaoImplDataJpa perfilDaoImplDataJpa, UsuarioRestController usuarioRestController){
+		this.perfilDaoImplDataJpa = perfilDaoImplDataJpa;
+		this.usuarioRestController = usuarioRestController;}
 	
 	@Override
 	public List<Usuario> todos() {
@@ -82,5 +86,6 @@ public class UsuarioDaoImplDataJpa implements UsuarioDao{
 		
 		return filas;
 	}
+
 
 }
